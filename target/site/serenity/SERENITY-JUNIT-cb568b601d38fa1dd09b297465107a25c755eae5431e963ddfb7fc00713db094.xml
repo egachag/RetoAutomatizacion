@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Ingreso a opencart verificaion de datos" skipped="0" tests="3" time="24.23" timestamp="2022-06-08 12:08:55"><testcase name="Inicio de sesion exitoso"/><testcase name="Agregar un producto a una orden nueva"/><testcase name="eliminar un cupon en la funcuionalidad Marketing"/></testsuite>
