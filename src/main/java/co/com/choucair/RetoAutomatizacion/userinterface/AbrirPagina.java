@@ -29,13 +29,17 @@ public class AbrirPagina extends PageObject {
             .located(By.xpath("//*[@id=\"content\"]/div[2]/div[1]/div[2]/table[1]/tfoot/tr/td[2]/button/i"));
     public static final Target PRODUCTO = Target.the("Campo del Producto")
             .located(By.id("input-product"));
-    public static final Target CANTIDAD = Target.the("Campo cantidad de productos")
-            .located(By.id("input-quantity"));
+    public static final Target LISTA = Target.the("Campo cantidad de productos")
+            .located(By.id("list-product"));
+    public static final Target SELECCION_LISTA = Target.the("Campo cantidad de productos")
+            .located(By.xpath("//*[@id=\"list-product\"]/option[2]"));
     public static final Target SELECCION_COLOR = Target.the("Campo seleccion del color")
             .located(By.id("input-option-226"));
     public static final Target COLOR = Target.the("Campo color del producto")
             .located(By.xpath("//*[@id=\"input-option-226\"]/option[2]"));
     public static final Target BOTON_GUARDAR = Target.the("BOTON GUARDAR")
             .located(By.id("button-product-add"));
+    public static final Target MENSAJE_EXITOSO = Target.the("Validar Dashboard")
+            .located(By.xpath("//*[@id=\"form-product-add\"]/div[1]/i"));
 
 }

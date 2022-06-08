@@ -1,10 +1,8 @@
 package co.com.choucair.RetoAutomatizacion.stepdefinitions;
 
+import co.com.choucair.RetoAutomatizacion.questions.Mensaje;
 import co.com.choucair.RetoAutomatizacion.questions.Validar;
-import co.com.choucair.RetoAutomatizacion.tasks.AbrirNavegador;
-import co.com.choucair.RetoAutomatizacion.tasks.Cerrar;
-import co.com.choucair.RetoAutomatizacion.tasks.Ingresar;
-import co.com.choucair.RetoAutomatizacion.tasks.Seleccionar;
+import co.com.choucair.RetoAutomatizacion.tasks.*;
 import cucumber.api.java.Before;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Cuando;
@@ -52,12 +50,13 @@ public class midefinicion {
 
     @Cuando("^agrego un producto a la nueva orden$")
     public void agregoUnProductoALaNuevaOrden() {
+        OnStage.theActorInTheSpotlight().attemptsTo(Agregar.producto());
 
     }
 
     @Entonces("^verifico mensaje de exito \"([^\"]*)\"$")
-    public void verificoMensajeDeExito(String arg1) {
-
+    public void verificoMensajeDeExito(String resultado) {
+        OnStage.theActorInTheSpotlight().should(GivenWhenThen.seeThat(Mensaje.exitoso(resultado)));
     }
 
     @Dado("^que estamoe en la opcion cupones de la funcionalidad Maketing$")

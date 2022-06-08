@@ -1,1 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="0" name="Ingreso a opencart verificaion de datos" skipped="0" tests="3" time="24.23" timestamp="2022-06-08 12:08:55"><testcase name="Inicio de sesion exitoso"/><testcase name="Agregar un producto a una orden nueva"/><testcase name="eliminar un cupon en la funcuionalidad Marketing"/></testsuite>
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Ingreso a opencart verificaion de datos" skipped="0" tests="3" time="26.46" timestamp="2022-06-08 06:09:32"><testcase name="Inicio de sesion exitoso"/><testcase name="Agregar un producto a una orden nueva"><failure message="Expected mensaje&#10;Expected: is &lt;true&gt;&#10;     but: was &lt;false&gt;" type="java.lang.AssertionError">Expected mensaje
+Expected: is &lt;true&gt;
+     but: was &lt;false&gt;</failure><system-err>Expected mensaje
+Expected: is &lt;true&gt;
+     but: was &lt;false&gt;&#13;
+co.com.choucair.RetoAutomatizacion.stepdefinitions.midefinicion.verificoMensajeDeExito(midefinicion.java:59)&#13;
+✽.verifico mensaje de exito "Success: You have modified your shopping cart!"(src/test/resources/features/Opencart.feature:21)&#13;
+</system-err></testcase><testcase name="eliminar un cupon en la funcuionalidad Marketing"/></testsuite>

@@ -1,0 +1,3120 @@
+<html dir="ltr" lang="en"><head>
+<meta charset="UTF-8">
+<title>Orders</title>
+<base href="https://demo.opencart.com/admin/">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<link href="view/stylesheet/bootstrap.css" rel="stylesheet" media="screen">
+<link href="view/stylesheet/fonts/fontawesome/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="view/stylesheet/stylesheet.css" rel="stylesheet" type="text/css">
+<script src="view/javascript/jquery/jquery-3.6.0.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="view/javascript/jquery/datetimepicker/moment.min.js"></script>
+<script type="text/javascript" src="view/javascript/jquery/datetimepicker/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="view/javascript/jquery/datetimepicker/daterangepicker.js"></script>
+<link href="view/javascript/jquery/datetimepicker/daterangepicker.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="view/javascript/common.js"></script>
+</head>
+<body class="modal-open" style="overflow: hidden; padding-right: 17px;">
+<div id="container">
+<div id="alert" class="position-fixed top-0 end-0 p-3" style="z-index: 9999;"></div>
+<header id="header" class="navbar navbar-expand navbar-light bg-light">
+<div class="container-fluid">
+<a href="https://demo.opencart.com/admin/index.php?route=common/dashboard&amp;user_token=bf78120977a35d24f1b4660c423f3de4" class="navbar-brand d-none d-lg-block"><img src="view/image/logo.png" alt="OpenCart" title="OpenCart"></a>
+<button type="button" id="button-menu" class="btn btn-link d-inline-block d-lg-none"><i class="fas fa-bars"></i></button>
+<ul class="nav navbar-nav">
+<li id="header-notification" class="nav-item dropdown">
+<a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle"><i class="far fa-bell"></i></a>
+<div class="dropdown-menu dropdown-menu-right">
+<span class="dropdown-item text-center">No results!</span>
+</div>
+</li>
+<li id="header-profile" class="nav-item dropdown">
+<a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle"><img src="https://demo.opencart.com/image/cache/profile-45x45.png" alt="demo demo" title="demo" class="rounded-circle"><span class="d-none d-md-inline d-lg-inline">&nbsp;&nbsp;&nbsp;demo demo <i class="fas fa-caret-down fa-fw"></i></span></a>
+<ul class="dropdown-menu dropdown-menu-right">
+<li><a href="https://demo.opencart.com/admin/index.php?route=user/profile&amp;user_token=bf78120977a35d24f1b4660c423f3de4" class="dropdown-item"><i class="fa fa-user-circle fa-fw"></i> Your Profile</a></li>
+<li><hr class="dropdown-divider"></li>
+<li><h6 class="dropdown-header">Stores</h6></li>
+<a href="https://demo.opencart.com/" target="_blank" class="dropdown-item">Your Store</a>
+<li><hr class="dropdown-divider"></li>
+<li><h6 class="dropdown-header">Help</h6></li>
+<li><a href="https://www.opencart.com" target="_blank" class="dropdown-item"><i class="fab fa-opencart fa-fw"></i> OpenCart Homepage</a></li>
+<li><a href="http://docs.opencart.com" target="_blank" class="dropdown-item"><i class="fas fa-file-alt fa-fw"></i> Documentation</a></li>
+<li><a href="http://forum.opencart.com" target="_blank" class="dropdown-item"><i class="fas fa-comments fa-fw"></i> Support Forum</a></li>
+</ul>
+</li>
+<li id="header-logout" class="nav-item"><a href="https://demo.opencart.com/admin/index.php?route=common/logout&amp;user_token=bf78120977a35d24f1b4660c423f3de4" class="nav-link"><i class="fas fa-sign-out-alt"></i> <span class="d-none d-md-inline">Logout</span></a></li>
+</ul>
+</div>
+</header>
+<nav id="column-left">
+<div id="navigation"><span class="fas fa-bars"></span> Navigation</div>
+<ul id="menu" class="show">
+<li id="menu-dashboard">
+<a href="https://demo.opencart.com/admin/index.php?route=common/dashboard&amp;user_token=bf78120977a35d24f1b4660c423f3de4"><i class="fas fa-home"></i> Dashboard</a>
+</li>
+<li id="menu-catalog">
+<a href="#collapse-1" data-bs-toggle="collapse" class="parent collapsed"><i class="fas fa-tag"></i> Catalog</a>
+<ul id="collapse-1" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=catalog/category&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Categories</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=catalog/product&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Products</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=catalog/subscription_plan&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Subscription Plans</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=catalog/filter&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Filters</a>
+</li>
+<li> <a href="#collapse-1-4" data-bs-toggle="collapse" class="parent collapsed">Attributes</a>
+<ul id="collapse-1-4" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=catalog/attribute&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Attributes</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=catalog/attribute_group&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Attribute Groups</a>
+</li>
+</ul>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=catalog/option&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Options</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=catalog/manufacturer&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Manufacturers</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=catalog/download&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Downloads</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=catalog/review&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Reviews</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=catalog/information&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Information</a>
+</li>
+</ul>
+</li>
+<li id="menu-extension">
+<a href="#collapse-2" data-bs-toggle="collapse" class="parent collapsed"><i class="fas fa-puzzle-piece"></i> Extensions</a>
+<ul id="collapse-2" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=marketplace/marketplace&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Marketplace</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=marketplace/installer&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Installer</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=marketplace/extension&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Extensions</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=marketplace/startup&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Startup</a>
+</li>
+ <li> <a href="https://demo.opencart.com/admin/index.php?route=marketplace/event&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Events</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=marketplace/cron&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Cron Jobs</a>
+</li>
+</ul>
+</li>
+<li id="menu-design">
+<a href="#collapse-3" data-bs-toggle="collapse" class="parent collapsed"><i class="fas fa-desktop"></i> Design</a>
+<ul id="collapse-3" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=design/layout&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Layouts</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=design/theme&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Theme Editor</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=design/translation&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Language Editor</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=design/banner&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Banners</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=design/seo_url&amp;user_token=bf78120977a35d24f1b4660c423f3de4">SEO URL</a>
+</li>
+</ul>
+</li>
+<li id="menu-sale" class="active">
+<a href="#collapse-4" data-bs-toggle="collapse" class="parent"><i class="fas fa-shopping-cart"></i> Sales</a>
+<ul id="collapse-4" class="collapse show">
+<li class="active"> <a href="https://demo.opencart.com/admin/index.php?route=sale/order&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Orders</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=sale/subscription&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Subscriptions</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=sale/returns&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Returns</a>
+</li>
+<li> <a href="#collapse-4-3" data-bs-toggle="collapse" class="parent collapsed">Gift Vouchers</a>
+<ul id="collapse-4-3" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=sale/voucher&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Gift Vouchers</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=sale/voucher_theme&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Voucher Themes</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="menu-customer">
+<a href="#collapse-5" data-bs-toggle="collapse" class="parent collapsed"><i class="fas fa-user"></i> Customers</a>
+<ul id="collapse-5" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=customer/customer&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Customers</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=customer/customer_group&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Customer Groups</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=customer/customer_approval&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Customer Approvals</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=customer/gdpr&amp;user_token=bf78120977a35d24f1b4660c423f3de4">GDPR</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=customer/custom_field&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Custom Fields</a>
+</li>
+</ul>
+</li>
+<li id="menu-marketing">
+<a href="#collapse-6" data-bs-toggle="collapse" class="parent collapsed"><i class="fas fa-share-alt"></i> Marketing</a>
+<ul id="collapse-6" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=marketing/affiliate&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Affiliate</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=marketing/marketing&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Marketing</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=marketing/coupon&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Coupons</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=marketing/contact&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Mail</a>
+</li>
+</ul>
+</li>
+<li id="menu-system">
+<a href="#collapse-7" data-bs-toggle="collapse" class="parent collapsed"><i class="fas fa-cog"></i> System</a>
+<ul id="collapse-7" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=setting/store&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Settings</a>
+</li>
+<li> <a href="#collapse-7-1" data-bs-toggle="collapse" class="parent collapsed">Users</a>
+<ul id="collapse-7-1" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=user/user_permission&amp;user_token=bf78120977a35d24f1b4660c423f3de4">User Groups</a>
+</li>
+</ul>
+</li>
+<li> <a href="#collapse-7-2" data-bs-toggle="collapse" class="parent collapsed">Localisation</a>
+<ul id="collapse-7-2" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/location&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Store Location</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/language&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Languages</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/currency&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Currencies</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/stock_status&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Stock Statuses</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/order_status&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Order Statuses</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/subscription_status&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Subscription Statuses</a>
+</li>
+<li> <a href="#collapse-7-2-6" data-bs-toggle="collapse" class="parent collapsed">Returns</a>
+<ul id="collapse-7-2-6" class="collapse">
+<li><a href="https://demo.opencart.com/admin/index.php?route=localisation/return_status&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Return Statuses</a></li>
+<li><a href="https://demo.opencart.com/admin/index.php?route=localisation/return_action&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Return Actions</a></li>
+<li><a href="https://demo.opencart.com/admin/index.php?route=localisation/return_reason&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Return Reasons</a></li>
+</ul>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/country&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Countries</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/zone&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Zones</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/geo_zone&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Geo Zones</a>
+</li>
+<li> <a href="#collapse-7-2-10" data-bs-toggle="collapse" class="parent collapsed">Taxes</a>
+<ul id="collapse-7-2-10" class="collapse">
+<li><a href="https://demo.opencart.com/admin/index.php?route=localisation/tax_class&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Tax Classes</a></li>
+<li><a href="https://demo.opencart.com/admin/index.php?route=localisation/tax_rate&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Tax Rates</a></li>
+</ul>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/length_class&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Length Classes</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/weight_class&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Weight Classes</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=localisation/address_format&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Address Format</a>
+</li>
+</ul>
+</li>
+<li> <a href="#collapse-7-3" data-bs-toggle="collapse" class="parent collapsed">Maintenance</a>
+<ul id="collapse-7-3" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=tool/upgrade&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Upgrade</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=tool/backup&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Backup / Restore</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=tool/upload&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Uploads</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=tool/log&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Error Logs</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li id="menu-report">
+<a href="#collapse-8" data-bs-toggle="collapse" class="parent collapsed"><i class="fas fa-chart-bar"></i> Reports</a>
+<ul id="collapse-8" class="collapse">
+<li> <a href="https://demo.opencart.com/admin/index.php?route=report/report&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Reports</a>
+ </li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=report/online&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Who's Online</a>
+</li>
+<li> <a href="https://demo.opencart.com/admin/index.php?route=report/statistics&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Statistics</a>
+</li>
+</ul>
+</li>
+</ul>
+<div id="stats">
+<ul>
+<li>
+<div>Orders Completed <span class="float-end">100%</span></div>
+<div class="progress">
+<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"><span class="sr-only">100%</span></div>
+</div>
+</li>
+<li>
+<div>Orders Processing <span class="float-end">460%</span></div>
+<div class="progress">
+<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="460" aria-valuemin="0" aria-valuemax="100" style="width: 460%"><span class="sr-only">460%</span></div>
+</div>
+</li>
+<li>
+<div>Other Statuses <span class="float-end">0%</span></div>
+<div class="progress">
+<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%"><span class="sr-only">0%</span></div>
+</div>
+</li>
+</ul>
+</div>
+</nav>
+<div id="content">
+<div class="page-header">
+<div class="container-fluid">
+<div class="float-end"><a href="https://demo.opencart.com/admin/index.php?route=sale/order|invoice&amp;user_token=bf78120977a35d24f1b4660c423f3de4&amp;order_id=0" target="_blank" data-bs-toggle="tooltip" title="" class="btn btn-info disabled" data-bs-original-title="Print Invoice" aria-label="Print Invoice"><i class="fas fa-print"></i></a> <a href="https://demo.opencart.com/admin/index.php?route=sale/order|shipping&amp;user_token=bf78120977a35d24f1b4660c423f3de4&amp;order_id=0" target="_blank" data-bs-toggle="tooltip" title="" class="btn btn-info disabled" data-bs-original-title="Print Shipping List" aria-label="Print Shipping List"><i class="fas fa-truck"></i></a> <a href="https://demo.opencart.com/admin/index.php?route=sale/order&amp;user_token=bf78120977a35d24f1b4660c423f3de4" data-bs-toggle="tooltip" title="" class="btn btn-light" data-bs-original-title="Back" aria-label="Back"><i class="fas fa-reply"></i></a></div>
+<h1>Orders</h1>
+<ol class="breadcrumb">
+<li class="breadcrumb-item"><a href="https://demo.opencart.com/admin/index.php?route=common/dashboard&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Home</a></li>
+<li class="breadcrumb-item"><a href="https://demo.opencart.com/admin/index.php?route=sale/order&amp;user_token=bf78120977a35d24f1b4660c423f3de4">Orders</a></li>
+</ol>
+</div>
+</div>
+<div class="container-fluid">
+<div class="card mb-3">
+<div class="card-header"><i class="fas fa-info-circle"></i> Add Order</div>
+<div class="card-body">
+<div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 row-cols-xl-3">
+<div class="col">
+<div class="input-group mb-3">
+<div class="form-control border rounded-start">
+<div class="lead"><strong>Invoice</strong>
+<br>
+<span id="invoice-value"></span>
+</div>
+</div>
+<button type="button" id="button-invoice" data-bs-toggle="tooltip" title="" class="btn btn-outline-primary" data-bs-original-title="Generate" aria-label="Generate"><i class="fas fa-cog"></i></button>
+</div>
+</div>
+<div class="col">
+<div class="input-group mb-3">
+<div class="form-control border rounded-start">
+<div class="lead"><strong>Customer</strong>
+<br>
+<div id="customer-value"></div>
+</div>
+</div>
+<button type="button" data-bs-toggle="modal" data-bs-target="#modal-customer" class="btn btn-outline-primary"><i class="fas fa-cog"></i></button>
+ </div>
+</div>
+<div class="col">
+<div class="form-control p-0 border rounded mb-3">
+<div class="lead p-2"><strong>Date Added</strong>
+<br>
+08/06/2022
+</div>
+</div>
+</div>
+</div>
+<table class="table table-bordered">
+<thead>
+<tr>
+<td class="text-start">Product</td>
+<td class="text-start">Model</td>
+<td class="text-end">Quantity</td>
+<td class="text-end">Unit Price</td>
+<td class="text-end">Total</td>
+<td class="text-end" style="width: 1px;">Action</td>
+</tr>
+</thead>
+<tbody id="order-products">
+</tbody>
+<tbody id="order-vouchers">
+<tr>
+<td colspan="6" class="text-center">No results!</td>
+</tr></tbody>
+<tfoot>
+<tr>
+<td colspan="5"></td>
+<td class="text-end"><button type="button" data-bs-toggle="modal" data-bs-target="#modal-cart" class="btn btn-primary"><i class="fas fa-plus-circle"></i></button></td>
+</tr>
+</tfoot>
+</table>
+<div id="collapse-order" class="collapse">
+<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4">
+<div class="col">
+<form id="form-store" class="mb-3">
+<div class="form-floating">
+<select name="store_id" id="input-store" class="form-select">
+<option value="0">Your Store</option>
+</select> <label for="input-store">Store</label>
+</div>
+</form>
+</div>
+<div class="col">
+<form id="form-language" class="mb-3">
+<div class="form-floating">
+<select name="language" id="input-language" class="form-select">
+<option value="en-gb" selected="selected">English</option>
+</select> <label for="input-language">Language</label>
+</div>
+</form>
+</div>
+<div class="col">
+<form id="form-currency" class="mb-3">
+<div class="form-floating">
+<select name="currency" id="input-currency" class="form-select">
+<option value="EUR">Euro</option>
+<option value="GBP">Pound Sterling</option>
+<option value="USD" selected="selected">US Dollar</option>
+</select> <label for="input-currency">Currency</label>
+</div>
+</form>
+</div>
+<div class="col">
+<form id="form-coupon" class="mb-3">
+<div class="input-group form-floating">
+<input type="text" name="coupon" value="" placeholder="Coupon" id="input-coupon" class="form-control"> <label for="input-coupon">Coupon</label>
+<button type="submit" id="button-coupon" data-bs-toogle="tooltip" title="Apply" class="btn btn-outline-primary"><i class="fas fa-check"></i></button>
+</div>
+</form>
+</div>
+<div class="col">
+<form id="form-voucher">
+<div class="input-group form-floating">
+<input type="text" name="voucher" value="" placeholder="Voucher" id="input-voucher" class="form-control"> <label for="input-voucher">Voucher</label>
+<button type="submit" id="button-voucher" data-bs-toogle="tooltip" title="Apply" class="btn btn-outline-primary"><i class="fas fa-check"></i></button>
+</div>
+</form>
+</div>
+<div class="col">
+<form id="form-reward" class="mb-3">
+<div class="input-group form-floating">
+<input type="text" name="reward" value="0" placeholder="Use Reward Points" id="input-reward" class="form-control"> <label for="input-reward">Use Reward Points</label>
+<button type="submit" id="button-reward" class="btn btn-outline-primary"><i class="fas fa-check"></i></button>
+</div>
+</form>
+</div>
+<div class="col">
+<div class="input-group">
+<div class="form-control border rounded-start">
+<div class="lead p-0"><strong>Reward Points</strong>
+<br>
+<div id="reward-value">0</div>
+</div>
+</div>
+<button type="button" id="button-reward-add" data-bs-toggle="tooltip" title="" class="btn btn-success" disabled="" data-bs-original-title="Add Reward Points" aria-label="Add Reward Points"><i class="fas fa-plus-circle"></i></button>
+</div>
+</div>
+<div class="col">
+<div class="input-group mb-3">
+<div class="form-control border rounded-start">
+<div class="lead"><strong>Affiliate</strong>
+<br>
+<div id="affiliate-value">&nbsp;</div>
+</div>
+</div>
+<button type="button" data-bs-toggle="modal" data-bs-target="#modal-affiliate" class="btn btn-outline-primary"><i class="fas fa-cog"></i></button>
+</div>
+</div>
+<div class="col">
+<div class="input-group mb-3">
+<div class="form-control border rounded-start">
+<div class="lead"><strong>Commission</strong>
+<br>
+<div id="commission-value">&nbsp;</div>
+</div>
+</div>
+<button type="button" id="button-commission-add" data-bs-toggle="tooltip" title="" class="btn btn-success" disabled="" data-bs-original-title="Add Commission" aria-label="Add Commission"><i class="fas fa-plus-circle"></i></button>
+</div>
+</div>
+</div>
+</div>
+<button type="button" id="button-collapse" class="btn btn-light btn-lg w-100 mb-3">More.. <i class="fas fa-angle-down"></i></button>
+<div class="row">
+<div class="col-md">
+<div class="input-group mb-3">
+<div class="form-control border rounded-start">
+<div class="lead"><strong>Payment Address</strong>
+<br>
+<div id="payment-address-value">
+</div>
+</div>
+</div>
+<button type="button" data-bs-toggle="modal" data-bs-target="#modal-payment-address" class="btn btn-outline-primary float-end"><i class="fas fa-cog"></i></button>
+</div>
+</div>
+<div id="shipping-address" class="col d-none">
+<div class="input-group mb-3">
+<div class="form-control border rounded-start">
+<div class="lead"><strong>Shipping Address</strong>
+<br>
+<div id="shipping-address-value">
+</div>
+</div>
+</div>
+<button type="button" data-bs-toggle="modal" data-bs-target="#modal-shipping-address" class="btn btn-outline-primary float-end"><i class="fas fa-cog"></i></button>
+</div>
+</div>
+</div>
+<div class="row mb-3">
+<div id="shipping-method" class="col-md d-none">
+<form id="form-shipping-method">
+<div class="input-group form-floating">
+<select name="shipping_method" id="input-shipping-method" class="form-select">
+<option value=""> --- Please Select --- </option>
+</select> <label for="input-shipping-method">Shipping Method</label>
+<button type="button" id="button-shipping-method" class="btn btn-outline-primary"><i class="fas fa-sync"></i></button>
+</div>
+</form>
+</div>
+<div id="payment-method" class="col-md">
+<form id="form-payment-method">
+<div class="input-group form-floating">
+<select name="payment_method" id="input-payment-method" class="form-select">
+<option value=""> --- Please Select --- </option>
+</select> <label for="input-payment-method">Payment Method</label>
+<button type="button" id="button-payment-method" class="btn btn-outline-primary"><i class="fas fa-sync"></i></button>
+</div>
+</form>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<div class="input-group mb-3">
+<div class="form-control border rounded-start">
+<div class="lead"><strong>Comment</strong>
+<br>
+<span id="comment-value"></span>
+</div>
+</div>
+<button type="button" data-bs-toggle="modal" data-bs-target="#modal-comment" class="btn btn-outline-primary float-end"><i class="fas fa-cog"></i></button>
+</div>
+</div>
+</div>
+<table class="table table-bordered">
+<tbody id="order-totals">
+</tbody>
+</table>
+<div class="text-end">
+<button type="button" id="button-refresh" data-bs-toggle="tooltip" title="" class="btn btn-outline-primary" data-bs-original-title="Refresh" aria-label="Refresh"><i class="fas fa-sync"></i></button>
+<button type="button" id="button-confirm" class="btn btn-primary"><i class="fas fa-save"></i> Confirm</button>
+</div>
+</div>
+</div>
+<div class="card mb-3">
+<div class="card-header"><i class="fas fa-comment"></i> History</div>
+<div class="card-body">
+<ul class="nav nav-tabs">
+<li class="nav-item"><a href="#tab-history" data-bs-toggle="tab" class="nav-link active">History</a></li>
+<li class="nav-item"><a href="#tab-additional" data-bs-toggle="tab" class="nav-link">Additional</a></li>
+</ul>
+<div class="tab-content">
+<div id="tab-history" class="tab-pane active">
+<fieldset>
+<legend>History</legend>
+<div id="history"><div class="table-responsive">
+<table class="table table-bordered">
+<thead>
+<tr>
+<td class="text-start">Date Added</td>
+<td class="text-start">Comment</td>
+<td class="text-start">Status</td>
+<td class="text-start">Customer Notified</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-center" colspan="4">No results!</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="row">
+<div class="col-sm-6 text-start"></div>
+<div class="col-sm-6 text-end">Showing 0 to 0 of 0 (0 Pages)</div>
+</div>
+</div>
+</fieldset>
+<form id="form-history">
+<fieldset>
+<legend>Add History</legend>
+<div class="row mb-3">
+<label for="input-order-status" class="col-sm-2 col-form-label">Order Status</label>
+<div class="col-sm-10">
+<select name="order_status_id" id="input-order-status" class="form-select">
+<option value="7">Canceled</option>
+<option value="9">Canceled Reversal</option>
+<option value="13">Chargeback</option>
+<option value="5">Complete</option>
+<option value="8">Denied</option>
+<option value="14">Expired</option>
+<option value="10">Failed</option>
+<option value="1" selected="">Pending</option>
+<option value="15">Processed</option>
+<option value="2">Processing</option>
+<option value="11">Refunded</option>
+<option value="12">Reversed</option>
+<option value="3">Shipped</option>
+<option value="16">Voided</option>
+</select>
+</div>
+</div>
+<div class="row mb-3">
+<label for="input-override" class="col-sm-2 col-form-label">Override</label>
+<div class="col-sm-10">
+<div class="form-check form-switch form-switch-lg">
+<input type="checkbox" name="override" value="1" id="input-override" class="form-check-input">
+</div>
+<div class="form-text">If the customers order is being blocked from changing the order status due to an anti-fraud extension enable override.</div>
+</div>
+</div>
+<div class="row mb-3">
+<label for="input-notify" class="col-sm-2 col-form-label">Notify Customer</label>
+<div class="col-sm-10">
+<div class="form-check form-switch form-switch-lg">
+<input type="checkbox" name="notify" value="1" id="input-notify" class="form-check-input">
+</div>
+</div>
+</div>
+<div class="row mb-3">
+<label for="input-comment" class="col-sm-2 col-form-label">Comment</label>
+<div class="col-sm-10">
+<textarea name="comment" rows="8" placeholder="Comment" id="input-history" class="form-control"></textarea>
+</div>
+</div>
+<div class="text-end">
+<button type="submit" id="button-history" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Add History</button>
+</div>
+</fieldset>
+<input type="hidden" name="order_id" value="" id="input-order-id">
+</form>
+</div>
+<div id="tab-additional" class="tab-pane">
+<div class="table-responsive">
+<table class="table table-bordered">
+<thead>
+<tr>
+<td colspan="2">Browser</td>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IP Address</td>
+<td></td>
+</tr>
+<tr>
+<td>User Agent</td>
+<td></td>
+</tr>
+<tr>
+<td>Accept Language</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="modal-customer" class="modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Customer</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<form id="form-customer">
+<div class="mb-3">
+<label for="input-customer" class="form-label">Customer</label>
+<div class="input-group">
+ <input type="text" name="customer" value="" placeholder="Customer" id="input-customer" list="list-customer" class="form-control"> <a href="https://demo.opencart.com/admin/index.php?route=customer/customer|form&amp;user_token=bf78120977a35d24f1b4660c423f3de4" target="_blank" data-bs-toggle="tooltip" title="" class="btn btn-outline-secondary" data-bs-original-title="Add Customer" aria-label="Add Customer"><i class="fas fa-user-plus"></i></a>
+</div>
+<input type="hidden" name="customer_id" value="0" id="input-customer-id">
+<datalist id="list-customer"></datalist>
+</div>
+<div class="mb-3">
+<label for="input-customer-group" class="form-label">Customer Group</label> <select name="customer_group_id" id="input-customer-group" class="form-select">
+<option value="1" selected="">Default</option>
+</select>
+</div>
+<div class="mb-3 required">
+<label for="input-firstname" class="form-label">First Name</label> <input type="text" name="firstname" value="" placeholder="First Name" id="input-firstname" class="form-control">
+<div id="error-firstname" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-lastname" class="form-label">Last Name</label> <input type="text" name="lastname" value="" placeholder="Last Name" id="input-lastname" class="form-control">
+<div id="error-lastname" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-email" class="form-label">E-Mail</label>
+<div class="input-group">
+<input type="text" name="email" value="" placeholder="E-Mail" id="input-email" class="form-control"> <a href="mailto:" class="btn btn-outline-secondary"><i class="fa fa-envelope"></i></a>
+</div>
+<div id="error-email" class="invalid-feedback"></div>
+</div>
+<div class="mb-3">
+<label for="input-telephone" class="form-label">Telephone</label> <input type="text" name="telephone" value="" placeholder="Telephone" id="input-telephone" class="form-control">
+<div id="error-telephone" class="invalid-feedback"></div>
+</div>
+<div class="text-end">
+<button type="submit" id="button-customer" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div id="modal-cart" class="modal show" aria-modal="true" role="dialog" style="display: block;">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Add Item</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<ul class="nav nav-tabs">
+<li class="nav-item"><a href="#tab-product" data-bs-toggle="tab" class="nav-link active">Products</a></li>
+<li class="nav-item"><a href="#tab-voucher" data-bs-toggle="tab" class="nav-link">Vouchers</a></li>
+</ul>
+<div class="tab-content">
+<div id="tab-product" class="tab-pane active">
+<form id="form-product-add">
+<fieldset class="mb-0">
+<legend>Add Product</legend>
+<div class="mb-3">
+<label for="input-product" class="form-label">Choose Product</label> <input type="text" name="product" value="" placeholder="Choose Product" id="input-product" list="list-product" class="form-control" autocomplete="off">
+<datalist id="list-product"><option>Canon EOS 5D</option></datalist>
+<input type="hidden" name="product_id" value="" id="input-product-id">
+</div>
+<div class="mb-3">
+<label for="input-quantity" class="form-label">Quantity</label> <input type="text" name="quantity" placeholder="Quantity" value="1" id="input-quantity" class="form-control">
+</div>
+</fieldset>
+<div id="option"></div>
+<div id="subscription"></div>
+<div class="text-end">
+<button type="submit" id="button-product-add" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+</div>
+</form>
+</div>
+<div id="tab-voucher" class="tab-pane">
+<form id="form-voucher-add">
+<fieldset class="mb-0">
+<legend>Add Voucher</legend>
+<div class="mb-3 required">
+<label for="input-to-name" class="form-label">Recipient's Name</label> <input type="text" name="to_name" value="" placeholder="Recipient's Name" id="input-to-name" class="form-control">
+<div id="error-to-name" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-to-email" class="form-label">Recipient's E-mail</label> <input type="text" name="to_email" value="" placeholder="Recipient's E-mail" id="input-to-email" class="form-control">
+<div id="error-to-email" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-from-name" class="form-label">Sender's Name</label> <input type="text" name="from_name" value="" placeholder="Sender's Name" id="input-from-name" class="form-control">
+<div id="error-from-name" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-from-email" class="form-label">Sender's E-mail</label> <input type="text" name="from_email" value="" placeholder="Sender's E-mail" id="input-from-email" class="form-control">
+<div id="error-from-email" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-theme" class="form-label">Gift Certificate Theme</label> <select name="voucher_theme_id" id="input-theme" class="form-select">
+<option value="7">Birthday</option>
+<option value="6">Christmas</option>
+<option value="8">General</option>
+</select>
+</div>
+<div class="mb-3">
+<label for="input-message" class="form-label">Message</label> <textarea name="message" rows="5" placeholder="Message" id="input-message" class="form-control"></textarea>
+</div>
+<div class="mb-3 required">
+<label for="input-amount" class="form-label">Amount</label> <input type="text" name="amount" value="" placeholder="Amount" id="input-amount" class="form-control">
+<div id="error-amount" class="invalid-feedback"></div>
+</div>
+</fieldset>
+<div class="text-end">
+<button type="submit" id="button-voucher-add" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="modal-affiliate" class="modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Affiliate</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<form id="form-affiliate">
+<div class="mb-3">
+<input type="text" name="affiliate" value="" placeholder="" id="input-affiliate" list="list-affiliate" class="form-control"> <input type="hidden" name="affiliate_id" value="0" id="input-affiliate-id">
+<datalist id="list-affiliate"></datalist>
+</div>
+<div class="text-end">
+<button type="submit" id="button-affiliate" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div id="modal-payment-address" class="modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Payment Address</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<form id="form-payment-address">
+<div class="mb-3">
+<label for="input-payment-address" class="form-label">Choose Address</label> <select name="payment_address" id="input-payment-address" class="form-select">
+<option value="0" selected="selected"> --- None --- </option>
+</select>
+</div>
+<div class="mb-3 required">
+<label for="input-payment-firstname" class="form-label">First Name</label> <input type="text" name="firstname" value="" placeholder="First Name" id="input-payment-firstname" class="form-control">
+<div id="error-payment-firstname" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-payment-lastname" class="form-label">Last Name</label> <input type="text" name="lastname" value="" placeholder="Last Name" id="input-payment-lastname" class="form-control">
+<div id="error-payment-lastname" class="invalid-feedback"></div>
+</div>
+<div class="mb-3">
+<label for="input-payment-company" class="form-label">Company</label> <input type="text" name="company" value="" placeholder="Company" id="input-payment-company" class="form-control">
+</div>
+<div class="mb-3 required">
+<label for="input-payment-address-1" class="form-label">Address 1</label> <input type="text" name="address_1" value="" placeholder="Address 1" id="input-payment-address-1" class="form-control">
+<div id="error-payment-address-1" class="invalid-feedback"></div>
+</div>
+<div class="mb-3">
+<label for="input-payment-address-2" class="form-label">Address 2</label> <input type="text" name="address_2" value="" placeholder="Address 2" id="input-payment-address-2" class="form-control">
+</div>
+<div class="mb-3 required">
+<label for="input-payment-city" class="form-label">City</label> <input type="text" name="city" value="" placeholder="City" id="input-payment-city" class="form-control">
+<div id="error-payment-city" class="invalid-feedback"></div>
+</div>
+<div class="mb-3">
+<label for="input-payment-postcode" class="form-label">Postcode</label> <input type="text" name="postcode" value="" placeholder="Postcode" id="input-payment-postcode" class="form-control">
+<div id="error-payment-postcode" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-payment-country" class="form-label">Country</label> <select name="country_id" id="input-payment-country" class="form-select">
+<option value=""> --- Please Select --- </option>
+<option value="244">Aaland Islands</option>
+<option value="1">Afghanistan</option>
+<option value="2">Albania</option>
+<option value="3">Algeria</option>
+<option value="4">American Samoa</option>
+<option value="5">Andorra</option>
+<option value="6">Angola</option>
+<option value="7">Anguilla</option>
+<option value="8">Antarctica</option>
+<option value="9">Antigua and Barbuda</option>
+<option value="10">Argentina</option>
+<option value="11">Armenia</option>
+<option value="12">Aruba</option>
+<option value="252">Ascension Island (British)</option>
+ <option value="13">Australia</option>
+<option value="14">Austria</option>
+<option value="15">Azerbaijan</option>
+<option value="16">Bahamas</option>
+<option value="17">Bahrain</option>
+<option value="18">Bangladesh</option>
+<option value="19">Barbados</option>
+<option value="20">Belarus</option>
+<option value="21">Belgium</option>
+<option value="22">Belize</option>
+<option value="23">Benin</option>
+<option value="24">Bermuda</option>
+<option value="25">Bhutan</option>
+<option value="26">Bolivia</option>
+<option value="245">Bonaire, Sint Eustatius and Saba</option>
+<option value="27">Bosnia and Herzegovina</option>
+<option value="28">Botswana</option>
+<option value="29">Bouvet Island</option>
+<option value="30">Brazil</option>
+<option value="31">British Indian Ocean Territory</option>
+<option value="32">Brunei Darussalam</option>
+<option value="33">Bulgaria</option>
+<option value="34">Burkina Faso</option>
+<option value="35">Burundi</option>
+<option value="36">Cambodia</option>
+<option value="37">Cameroon</option>
+<option value="38">Canada</option>
+<option value="251">Canary Islands</option>
+<option value="39">Cape Verde</option>
+<option value="40">Cayman Islands</option>
+<option value="41">Central African Republic</option>
+<option value="42">Chad</option>
+<option value="43">Chile</option>
+<option value="44">China</option>
+<option value="45">Christmas Island</option>
+<option value="46">Cocos (Keeling) Islands</option>
+<option value="47">Colombia</option>
+<option value="48">Comoros</option>
+<option value="49">Congo</option>
+<option value="50">Cook Islands</option>
+<option value="51">Costa Rica</option>
+<option value="52">Cote D'Ivoire</option>
+<option value="53">Croatia</option>
+<option value="54">Cuba</option>
+<option value="246">Curacao</option>
+<option value="55">Cyprus</option>
+<option value="56">Czech Republic</option>
+<option value="237">Democratic Republic of Congo</option>
+<option value="57">Denmark</option>
+<option value="58">Djibouti</option>
+<option value="59">Dominica</option>
+<option value="60">Dominican Republic</option>
+<option value="61">East Timor</option>
+<option value="62">Ecuador</option>
+<option value="63">Egypt</option>
+<option value="64">El Salvador</option>
+<option value="65">Equatorial Guinea</option>
+<option value="66">Eritrea</option>
+<option value="67">Estonia</option>
+ <option value="68">Ethiopia</option>
+<option value="69">Falkland Islands (Malvinas)</option>
+<option value="70">Faroe Islands</option>
+<option value="71">Fiji</option>
+<option value="72">Finland</option>
+<option value="74">France, Metropolitan</option>
+<option value="75">French Guiana</option>
+<option value="76">French Polynesia</option>
+<option value="77">French Southern Territories</option>
+<option value="126">FYROM</option>
+<option value="78">Gabon</option>
+<option value="79">Gambia</option>
+<option value="80">Georgia</option>
+<option value="81">Germany</option>
+<option value="82">Ghana</option>
+<option value="83">Gibraltar</option>
+<option value="84">Greece</option>
+<option value="85">Greenland</option>
+<option value="86">Grenada</option>
+<option value="87">Guadeloupe</option>
+<option value="88">Guam</option>
+<option value="89">Guatemala</option>
+<option value="256">Guernsey</option>
+<option value="90">Guinea</option>
+<option value="91">Guinea-Bissau</option>
+<option value="92">Guyana</option>
+<option value="93">Haiti</option>
+<option value="94">Heard and Mc Donald Islands</option>
+<option value="95">Honduras</option>
+<option value="96">Hong Kong</option>
+<option value="97">Hungary</option>
+<option value="98">Iceland</option>
+<option value="99">India</option>
+<option value="100">Indonesia</option>
+<option value="101">Iran (Islamic Republic of)</option>
+<option value="102">Iraq</option>
+<option value="103">Ireland</option>
+<option value="254">Isle of Man</option>
+<option value="104">Israel</option>
+<option value="105">Italy</option>
+<option value="106">Jamaica</option>
+<option value="107">Japan</option>
+<option value="257">Jersey</option>
+<option value="108">Jordan</option>
+<option value="109">Kazakhstan</option>
+<option value="110">Kenya</option>
+<option value="111">Kiribati</option>
+<option value="253">Kosovo, Republic of</option>
+<option value="114">Kuwait</option>
+<option value="115">Kyrgyzstan</option>
+<option value="116">Lao People's Democratic Republic</option>
+<option value="117">Latvia</option>
+<option value="118">Lebanon</option>
+<option value="119">Lesotho</option>
+<option value="120">Liberia</option>
+<option value="121">Libyan Arab Jamahiriya</option>
+<option value="122">Liechtenstein</option>
+<option value="123">Lithuania</option>
+<option value="124">Luxembourg</option>
+ <option value="125">Macau</option>
+<option value="127">Madagascar</option>
+<option value="128">Malawi</option>
+<option value="129">Malaysia</option>
+<option value="130">Maldives</option>
+<option value="131">Mali</option>
+<option value="132">Malta</option>
+<option value="133">Marshall Islands</option>
+<option value="134">Martinique</option>
+<option value="135">Mauritania</option>
+<option value="136">Mauritius</option>
+<option value="137">Mayotte</option>
+<option value="138">Mexico</option>
+<option value="139">Micronesia, Federated States of</option>
+<option value="140">Moldova, Republic of</option>
+<option value="141">Monaco</option>
+<option value="142">Mongolia</option>
+<option value="242">Montenegro</option>
+<option value="143">Montserrat</option>
+<option value="144">Morocco</option>
+<option value="145">Mozambique</option>
+<option value="146">Myanmar</option>
+<option value="147">Namibia</option>
+<option value="148">Nauru</option>
+<option value="149">Nepal</option>
+<option value="150">Netherlands</option>
+<option value="151">Netherlands Antilles</option>
+<option value="152">New Caledonia</option>
+<option value="153">New Zealand</option>
+<option value="154">Nicaragua</option>
+<option value="155">Niger</option>
+<option value="156">Nigeria</option>
+<option value="157">Niue</option>
+<option value="158">Norfolk Island</option>
+<option value="112">North Korea</option>
+<option value="159">Northern Mariana Islands</option>
+<option value="160">Norway</option>
+<option value="161">Oman</option>
+<option value="162">Pakistan</option>
+<option value="163">Palau</option>
+<option value="247">Palestinian Territory, Occupied</option>
+<option value="164">Panama</option>
+<option value="165">Papua New Guinea</option>
+<option value="166">Paraguay</option>
+<option value="167">Peru</option>
+<option value="168">Philippines</option>
+<option value="169">Pitcairn</option>
+<option value="170">Poland</option>
+<option value="171">Portugal</option>
+<option value="172">Puerto Rico</option>
+<option value="173">Qatar</option>
+<option value="174">Reunion</option>
+<option value="175">România</option>
+<option value="176">Russian Federation</option>
+<option value="177">Rwanda</option>
+<option value="178">Saint Kitts and Nevis</option>
+<option value="179">Saint Lucia</option>
+<option value="180">Saint Vincent and the Grenadines</option>
+<option value="181">Samoa</option>
+<option value="182">San Marino</option>
+<option value="183">Sao Tome and Principe</option>
+<option value="184">Saudi Arabia</option>
+<option value="185">Senegal</option>
+<option value="243">Serbia</option>
+<option value="186">Seychelles</option>
+<option value="187">Sierra Leone</option>
+<option value="188">Singapore</option>
+<option value="189">Slovak Republic</option>
+<option value="190">Slovenia</option>
+<option value="191">Solomon Islands</option>
+<option value="192">Somalia</option>
+<option value="193">South Africa</option>
+<option value="194">South Georgia &amp; South Sandwich Islands</option>
+<option value="113">South Korea</option>
+<option value="248">South Sudan</option>
+<option value="195">Spain</option>
+<option value="196">Sri Lanka</option>
+<option value="249">St. Barthelemy</option>
+<option value="197">St. Helena</option>
+<option value="250">St. Martin (French part)</option>
+<option value="198">St. Pierre and Miquelon</option>
+<option value="199">Sudan</option>
+<option value="200">Suriname</option>
+<option value="201">Svalbard and Jan Mayen Islands</option>
+<option value="202">Swaziland</option>
+<option value="203">Sweden</option>
+<option value="204">Switzerland</option>
+<option value="205">Syrian Arab Republic</option>
+<option value="206">Taiwan</option>
+<option value="207">Tajikistan</option>
+<option value="208">Tanzania, United Republic of</option>
+<option value="209">Thailand</option>
+<option value="210">Togo</option>
+<option value="211">Tokelau</option>
+<option value="212">Tonga</option>
+<option value="213">Trinidad and Tobago</option>
+<option value="255">Tristan da Cunha</option>
+<option value="214">Tunisia</option>
+<option value="215">Turkey</option>
+<option value="216">Turkmenistan</option>
+<option value="217">Turks and Caicos Islands</option>
+<option value="218">Tuvalu</option>
+<option value="219">Uganda</option>
+<option value="220">Ukraine</option>
+<option value="221">United Arab Emirates</option>
+<option value="222">United Kingdom</option>
+<option value="223">United States</option>
+<option value="224">United States Minor Outlying Islands</option>
+<option value="225">Uruguay</option>
+<option value="226">Uzbekistan</option>
+<option value="227">Vanuatu</option>
+<option value="228">Vatican City State (Holy See)</option>
+<option value="229">Venezuela</option>
+<option value="230">Viet Nam</option>
+<option value="231">Virgin Islands (British)</option>
+<option value="232">Virgin Islands (U.S.)</option>
+<option value="233">Wallis and Futuna Islands</option>
+<option value="234">Western Sahara</option>
+<option value="235">Yemen</option>
+<option value="238">Zambia</option>
+<option value="239">Zimbabwe</option>
+</select>
+<div id="error-payment-country" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-payment-zone" class="form-label">Region / State</label> <select name="zone_id" id="input-payment-zone" class="form-select"><option value=""> --- Please Select --- </option><option value="0" selected="selected"> --- None --- </option></select>
+<div id="error-payment-zone" class="invalid-feedback"></div>
+</div>
+<div class="text-end">
+<button type="submit" id="button-payment-address" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div id="modal-shipping-address" class="modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Shipping Address</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<form id="form-shipping-address">
+<div class="mb-3">
+<label for="input-shipping-address" class="form-label">Choose Address</label> <select name="shipping_address" id="input-shipping-address" class="form-select">
+<option value="0" selected="selected"> --- None --- </option>
+</select>
+</div>
+<div class="mb-3 required">
+<label for="input-shipping-firstname" class="form-label">First Name</label> <input type="text" name="firstname" value="" placeholder="First Name" id="input-shipping-firstname" class="form-control">
+<div id="error-shipping-firstname" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-shipping-lastname" class="form-label">Last Name</label> <input type="text" name="lastname" value="" placeholder="Last Name" id="input-shipping-lastname" class="form-control">
+<div id="error-shipping-lastname" class="invalid-feedback"></div>
+</div>
+<div class="mb-3">
+<label for="input-shipping-company" class="form-label">Company</label> <input type="text" name="company" value="" placeholder="Company" id="input-shipping-company" class="form-control">
+</div>
+<div class="mb-3 required">
+<label for="input-shipping-address-1" class="form-label">Address 1</label> <input type="text" name="address_1" value="" placeholder="Address 1" id="input-shipping-address-1" class="form-control">
+<div id="error-shipping-address-1" class="invalid-feedback"></div>
+</div>
+<div class="mb-3">
+<label for="input-shipping-address-2" class="form-label">Address 2</label> <input type="text" name="address_2" value="" placeholder="Address 2" id="input-shipping-address-2" class="form-control">
+</div>
+<div class="mb-3 required">
+<label for="input-shipping-city" class="form-label">City</label> <input type="text" name="city" value="" placeholder="City" id="input-shipping-city" class="form-control">
+<div id="error-shipping-city" class="invalid-feedback"></div>
+</div>
+<div class="mb-3">
+<label for="input-shipping-postcode" class="form-label">Postcode</label> <input type="text" name="postcode" value="" placeholder="Postcode" id="input-shipping-postcode" class="form-control">
+<div id="error-shipping-postcode" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-shipping-country" class="form-label">Country</label> <select name="country_id" id="input-shipping-country" class="form-select">
+<option value=""> --- Please Select --- </option>
+<option value="244">Aaland Islands</option>
+<option value="1">Afghanistan</option>
+<option value="2">Albania</option>
+<option value="3">Algeria</option>
+<option value="4">American Samoa</option>
+<option value="5">Andorra</option>
+<option value="6">Angola</option>
+<option value="7">Anguilla</option>
+<option value="8">Antarctica</option>
+<option value="9">Antigua and Barbuda</option>
+<option value="10">Argentina</option>
+<option value="11">Armenia</option>
+<option value="12">Aruba</option>
+<option value="252">Ascension Island (British)</option>
+<option value="13">Australia</option>
+<option value="14">Austria</option>
+<option value="15">Azerbaijan</option>
+<option value="16">Bahamas</option>
+<option value="17">Bahrain</option>
+<option value="18">Bangladesh</option>
+<option value="19">Barbados</option>
+<option value="20">Belarus</option>
+<option value="21">Belgium</option>
+<option value="22">Belize</option>
+<option value="23">Benin</option>
+<option value="24">Bermuda</option>
+<option value="25">Bhutan</option>
+<option value="26">Bolivia</option>
+<option value="245">Bonaire, Sint Eustatius and Saba</option>
+<option value="27">Bosnia and Herzegovina</option>
+<option value="28">Botswana</option>
+<option value="29">Bouvet Island</option>
+<option value="30">Brazil</option>
+<option value="31">British Indian Ocean Territory</option>
+<option value="32">Brunei Darussalam</option>
+<option value="33">Bulgaria</option>
+<option value="34">Burkina Faso</option>
+<option value="35">Burundi</option>
+<option value="36">Cambodia</option>
+<option value="37">Cameroon</option>
+<option value="38">Canada</option>
+<option value="251">Canary Islands</option>
+<option value="39">Cape Verde</option>
+<option value="40">Cayman Islands</option>
+<option value="41">Central African Republic</option>
+<option value="42">Chad</option>
+<option value="43">Chile</option>
+<option value="44">China</option>
+<option value="45">Christmas Island</option>
+<option value="46">Cocos (Keeling) Islands</option>
+<option value="47">Colombia</option>
+<option value="48">Comoros</option>
+<option value="49">Congo</option>
+<option value="50">Cook Islands</option>
+<option value="51">Costa Rica</option>
+<option value="52">Cote D'Ivoire</option>
+ <option value="53">Croatia</option>
+<option value="54">Cuba</option>
+<option value="246">Curacao</option>
+<option value="55">Cyprus</option>
+<option value="56">Czech Republic</option>
+<option value="237">Democratic Republic of Congo</option>
+<option value="57">Denmark</option>
+<option value="58">Djibouti</option>
+<option value="59">Dominica</option>
+<option value="60">Dominican Republic</option>
+<option value="61">East Timor</option>
+<option value="62">Ecuador</option>
+<option value="63">Egypt</option>
+<option value="64">El Salvador</option>
+<option value="65">Equatorial Guinea</option>
+<option value="66">Eritrea</option>
+<option value="67">Estonia</option>
+<option value="68">Ethiopia</option>
+<option value="69">Falkland Islands (Malvinas)</option>
+<option value="70">Faroe Islands</option>
+<option value="71">Fiji</option>
+<option value="72">Finland</option>
+<option value="74">France, Metropolitan</option>
+<option value="75">French Guiana</option>
+<option value="76">French Polynesia</option>
+<option value="77">French Southern Territories</option>
+<option value="126">FYROM</option>
+<option value="78">Gabon</option>
+<option value="79">Gambia</option>
+<option value="80">Georgia</option>
+<option value="81">Germany</option>
+<option value="82">Ghana</option>
+<option value="83">Gibraltar</option>
+<option value="84">Greece</option>
+<option value="85">Greenland</option>
+<option value="86">Grenada</option>
+<option value="87">Guadeloupe</option>
+<option value="88">Guam</option>
+<option value="89">Guatemala</option>
+<option value="256">Guernsey</option>
+<option value="90">Guinea</option>
+<option value="91">Guinea-Bissau</option>
+<option value="92">Guyana</option>
+<option value="93">Haiti</option>
+<option value="94">Heard and Mc Donald Islands</option>
+<option value="95">Honduras</option>
+<option value="96">Hong Kong</option>
+<option value="97">Hungary</option>
+<option value="98">Iceland</option>
+<option value="99">India</option>
+<option value="100">Indonesia</option>
+<option value="101">Iran (Islamic Republic of)</option>
+<option value="102">Iraq</option>
+<option value="103">Ireland</option>
+<option value="254">Isle of Man</option>
+<option value="104">Israel</option>
+<option value="105">Italy</option>
+<option value="106">Jamaica</option>
+<option value="107">Japan</option>
+<option value="257">Jersey</option>
+<option value="108">Jordan</option>
+<option value="109">Kazakhstan</option>
+<option value="110">Kenya</option>
+<option value="111">Kiribati</option>
+<option value="253">Kosovo, Republic of</option>
+<option value="114">Kuwait</option>
+<option value="115">Kyrgyzstan</option>
+<option value="116">Lao People's Democratic Republic</option>
+<option value="117">Latvia</option>
+<option value="118">Lebanon</option>
+<option value="119">Lesotho</option>
+<option value="120">Liberia</option>
+<option value="121">Libyan Arab Jamahiriya</option>
+<option value="122">Liechtenstein</option>
+<option value="123">Lithuania</option>
+<option value="124">Luxembourg</option>
+<option value="125">Macau</option>
+<option value="127">Madagascar</option>
+<option value="128">Malawi</option>
+<option value="129">Malaysia</option>
+<option value="130">Maldives</option>
+<option value="131">Mali</option>
+<option value="132">Malta</option>
+<option value="133">Marshall Islands</option>
+<option value="134">Martinique</option>
+<option value="135">Mauritania</option>
+<option value="136">Mauritius</option>
+<option value="137">Mayotte</option>
+<option value="138">Mexico</option>
+<option value="139">Micronesia, Federated States of</option>
+<option value="140">Moldova, Republic of</option>
+<option value="141">Monaco</option>
+<option value="142">Mongolia</option>
+<option value="242">Montenegro</option>
+<option value="143">Montserrat</option>
+<option value="144">Morocco</option>
+<option value="145">Mozambique</option>
+<option value="146">Myanmar</option>
+<option value="147">Namibia</option>
+<option value="148">Nauru</option>
+<option value="149">Nepal</option>
+<option value="150">Netherlands</option>
+<option value="151">Netherlands Antilles</option>
+<option value="152">New Caledonia</option>
+<option value="153">New Zealand</option>
+<option value="154">Nicaragua</option>
+<option value="155">Niger</option>
+<option value="156">Nigeria</option>
+<option value="157">Niue</option>
+<option value="158">Norfolk Island</option>
+<option value="112">North Korea</option>
+<option value="159">Northern Mariana Islands</option>
+<option value="160">Norway</option>
+<option value="161">Oman</option>
+<option value="162">Pakistan</option>
+<option value="163">Palau</option>
+<option value="247">Palestinian Territory, Occupied</option>
+<option value="164">Panama</option>
+ <option value="165">Papua New Guinea</option>
+<option value="166">Paraguay</option>
+<option value="167">Peru</option>
+<option value="168">Philippines</option>
+<option value="169">Pitcairn</option>
+<option value="170">Poland</option>
+<option value="171">Portugal</option>
+<option value="172">Puerto Rico</option>
+<option value="173">Qatar</option>
+<option value="174">Reunion</option>
+<option value="175">România</option>
+<option value="176">Russian Federation</option>
+<option value="177">Rwanda</option>
+<option value="178">Saint Kitts and Nevis</option>
+<option value="179">Saint Lucia</option>
+<option value="180">Saint Vincent and the Grenadines</option>
+<option value="181">Samoa</option>
+<option value="182">San Marino</option>
+<option value="183">Sao Tome and Principe</option>
+<option value="184">Saudi Arabia</option>
+<option value="185">Senegal</option>
+<option value="243">Serbia</option>
+<option value="186">Seychelles</option>
+<option value="187">Sierra Leone</option>
+<option value="188">Singapore</option>
+<option value="189">Slovak Republic</option>
+<option value="190">Slovenia</option>
+<option value="191">Solomon Islands</option>
+<option value="192">Somalia</option>
+<option value="193">South Africa</option>
+<option value="194">South Georgia &amp; South Sandwich Islands</option>
+<option value="113">South Korea</option>
+<option value="248">South Sudan</option>
+<option value="195">Spain</option>
+<option value="196">Sri Lanka</option>
+<option value="249">St. Barthelemy</option>
+<option value="197">St. Helena</option>
+<option value="250">St. Martin (French part)</option>
+<option value="198">St. Pierre and Miquelon</option>
+<option value="199">Sudan</option>
+<option value="200">Suriname</option>
+<option value="201">Svalbard and Jan Mayen Islands</option>
+<option value="202">Swaziland</option>
+<option value="203">Sweden</option>
+<option value="204">Switzerland</option>
+<option value="205">Syrian Arab Republic</option>
+<option value="206">Taiwan</option>
+<option value="207">Tajikistan</option>
+<option value="208">Tanzania, United Republic of</option>
+<option value="209">Thailand</option>
+<option value="210">Togo</option>
+<option value="211">Tokelau</option>
+<option value="212">Tonga</option>
+<option value="213">Trinidad and Tobago</option>
+<option value="255">Tristan da Cunha</option>
+<option value="214">Tunisia</option>
+<option value="215">Turkey</option>
+<option value="216">Turkmenistan</option>
+<option value="217">Turks and Caicos Islands</option>
+<option value="218">Tuvalu</option>
+<option value="219">Uganda</option>
+<option value="220">Ukraine</option>
+<option value="221">United Arab Emirates</option>
+<option value="222">United Kingdom</option>
+<option value="223">United States</option>
+<option value="224">United States Minor Outlying Islands</option>
+<option value="225">Uruguay</option>
+<option value="226">Uzbekistan</option>
+<option value="227">Vanuatu</option>
+<option value="228">Vatican City State (Holy See)</option>
+<option value="229">Venezuela</option>
+<option value="230">Viet Nam</option>
+<option value="231">Virgin Islands (British)</option>
+<option value="232">Virgin Islands (U.S.)</option>
+<option value="233">Wallis and Futuna Islands</option>
+<option value="234">Western Sahara</option>
+<option value="235">Yemen</option>
+<option value="238">Zambia</option>
+<option value="239">Zimbabwe</option>
+</select>
+<div id="error-shipping-country" class="invalid-feedback"></div>
+</div>
+<div class="mb-3 required">
+<label for="input-shipping-zone" class="form-label">Region / State</label> <select name="zone_id" id="input-shipping-zone" class="form-select"><option value=""> --- Please Select --- </option><option value="0" selected="selected"> --- None --- </option></select>
+<div id="error-shipping-zone" class="invalid-feedback"></div>
+</div>
+<div class="text-end">
+<button type="submit" id="button-shipping-address" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<div id="modal-comment" class="modal">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title">Comment</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+</div>
+<div class="modal-body">
+<form id="form-comment">
+<div class="mb-3">
+<textarea name="comment" rows="5" placeholder="Comment" id="input-comment" class="form-control"></textarea>
+</div>
+<div class="text-end">
+<button type="submit" id="button-comment" class="btn btn-primary"><i class="fas fa-save"></i> Save</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript"><!--
+$('#button-collapse').on('click', function () {
+    var element = this;
+
+    var target = $('#collapse-order');
+
+    if (!target.is(':hidden')) {
+        target.slideUp('400', function () {
+            $(element).html('More.. <i class="fas fa-angle-down"></i>');
+        });
+    } else {
+        target.slideDown('400', function () {
+            $(element).html('Less.. <i class="fas fa-angle-up"></i>');
+        });
+    }
+});
+
+$(document).on('click', '#button-invoice', function () {
+    $.ajax({
+        url: 'index.php?route=sale/order|createinvoiceno&user_token=bf78120977a35d24f1b4660c423f3de4&order_id=',
+        dataType: 'json',
+        beforeSend: function () {
+            $('#button-invoice').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-invoice').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#invoice-value').html(json['invoice_no']);
+
+                $('#button-invoice').replaceWith('<button disabled="disabled" class="btn btn-outline-primary"><i class="fas fa-cog"></i></button>');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Customer
+$('#input-customer').autocomplete({
+    'source': function (request, response) {
+        $.ajax({
+            url: 'index.php?route=customer/customer|autocomplete&user_token=bf78120977a35d24f1b4660c423f3de4&filter_name=' + encodeURIComponent(request),
+            dataType: 'json',
+            success: function (json) {
+                json.unshift({
+                    customer_id: 0,
+                    customer_group_id: 1,
+                    name: ' --- None --- ',
+                    customer_group: '',
+                    firstname: '',
+                    lastname: '',
+                    email: '',
+                    telephone: '',
+                    custom_field: [],
+                    address: []
+                });
+
+                response($.map(json, function (item) {
+                    return {
+                        category: item['customer_group'],
+                        label: item['name'],
+                        value: item['customer_id'],
+                        customer_group_id: item['customer_group_id'],
+                        firstname: item['firstname'],
+                        lastname: item['lastname'],
+                        email: item['email'],
+                        telephone: item['telephone'],
+                        custom_field: item['custom_field'],
+                        address: item['address']
+                    }
+                }));
+            }
+        });
+    },
+    'select': function (item) {
+        // Reset all custom fields
+        $('#form-customer input[type=\'text\'], #form-customer textarea').not('#input-customer, #input-customer-id').val('');
+        $('#form-customer select option').removeAttr('selected');
+        $('#form-customer input[type=\'checkbox\'], #form-customer input[type=\'radio\']').removeAttr('checked');
+
+        $('#input-customer-id').val(item['value']);
+        $('#input-customer-group').val(item['customer_group_id']);
+        $('#input-firstname').val(item['firstname']);
+        $('#input-lastname').val(item['lastname']);
+        $('#input-email').val(item['email']);
+        $('#input-telephone').val(item['telephone']);
+
+        for (i in item.custom_field) {
+            $('#input-custom-field-' + i).val(item.custom_field[i]);
+
+            if (item.custom_field[i] instanceof Array) {
+                for (j = 0; j < item.custom_field[i].length; j++) {
+                    $('#input-custom-field-value-' + item.custom_field[i][j]).prop('checked', true);
+                }
+            }
+        }
+
+        $('#input-customer-group').trigger('change');
+
+        html = '<option value="0"> --- None --- </option>';
+
+        for (i in item['address']) {
+            html += '<option value="' + item['address'][i]['address_id'] + '">' + item['address'][i]['firstname'] + ' ' + item['address'][i]['lastname'] + ', ' + item['address'][i]['address_1'] + ', ' + item['address'][i]['city'] + ', ' + item['address'][i]['country'] + '</option>';
+        }
+
+        $('#input-payment-address').html(html);
+        $('#input-shipping-address').html(html);
+    }
+});
+
+// Custom Fields
+$('#input-customer-group').on('change', function () {
+    $.ajax({
+        url: 'index.php?route=customer/customer|customfield&user_token=bf78120977a35d24f1b4660c423f3de4&customer_group_id=' + this.value,
+        dataType: 'json',
+        success: function (json) {
+            $('.custom-field').hide();
+            $('.custom-field').removeClass('required');
+
+            for (i = 0; i < json.length; i++) {
+                custom_field = json[i];
+
+                $('.custom-field-' + custom_field['custom_field_id']).show();
+
+                if (custom_field['required']) {
+                    $('.custom-field-' + custom_field['custom_field_id']).addClass('required');
+                }
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#input-customer-group').trigger('change');
+
+// Customer
+$('#form-customer').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/customer',
+        type: 'post',
+        data: $('#form-customer').serialize(),
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded',
+        beforeSend: function () {
+            $('#button-customer').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-customer').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+            $('.is-invalid').removeClass('is-invalid');
+            $('.invalid-feedback').removeClass('d-block');
+
+            // Check for errors
+            if (json['error']) {
+                if (json['error']['warning']) {
+                    $('#form-customer').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error']['warning'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+                }
+
+                for (key in json['error']) {
+                    $('#input-' + key.replaceAll('_', '-')).addClass('is-invalid').find('.form-control, .form-select, .form-check-input, .form-check-label').addClass('is-invalid');
+                    $('#error-' + key.replaceAll('_', '-')).html(json['error'][key]).addClass('d-block');
+                }
+            }
+
+            if (json['success']) {
+                $('#form-customer').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#customer-value').html('<a href="index.php?route=customer/customer|form&user_token=bf78120977a35d24f1b4660c423f3de4&customer_id=' + $('#input-customer-id').val() + '">' + $('#input-firstname').val() + ' ' + $('#input-lastname').val() + '</a>');
+
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Product
+$('#input-product').autocomplete({
+    'source': function (request, response) {
+        $.ajax({
+            url: 'index.php?route=catalog/product|autocomplete&user_token=bf78120977a35d24f1b4660c423f3de4&filter_name=' + encodeURIComponent(request),
+            dataType: 'json',
+            success: function (json) {
+                response($.map(json, function (item) {
+                    return {
+                        label: item['name'],
+                        value: item['product_id'],
+                        model: item['model'],
+                        option: item['option'],
+                        subscription: item['subscription'],
+                        price: item['price']
+                    }
+                }));
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+            }
+        });
+    },
+    'select': function (item) {
+        $('#input-product-id').val(item['value']);
+
+        if (item['option'] != '') {
+            html = '<fieldset class="mb-0">';
+            html += '  <legend>Choose Option(s)</legend>';
+
+            for (i = 0; i < item['option'].length; i++) {
+                option = item['option'][i];
+
+                if (option['type'] == 'select') {
+                    html += '<div class="mb-3' + (option['required'] == 1 ? ' required' : '') + '">';
+                    html += '  <label for="input-option-' + option['product_option_id'] + '" class="form-label">' + option['name'] + '</label>';
+                    html += '  <select name="option[' + option['product_option_id'] + ']" id="input-option-' + option['product_option_id'] + '" class="form-select">';
+                    html += '    <option value=""> --- Please Select --- </option>';
+
+                    for (j = 0; j < option['product_option_value'].length; j++) {
+                        option_value = option['product_option_value'][j];
+
+                        html += '<option value="' + option_value['product_option_value_id'] + '">' + option_value['name'];
+
+                        if (option_value['price']) {
+                            html += ' (' + option_value['price_prefix'] + option_value['price'] + ')';
+                        }
+
+                        html += '</option>';
+                    }
+
+                    html += '  </select>';
+                    html += '  <div id="error-option-' + option['product_option_id'] + '" class="invalid-feedback"></div>';
+                    html += '</div>';
+                }
+
+                if (option['type'] == 'radio') {
+                    html += '<div class="mb-3' + (option['required'] == 1 ? ' required' : '') + '">';
+                    html += '  <label for="input-option-' + option['product_option_id'] + '" class="form-label">' + option['name'] + '</label>';
+
+                    html += '  <select name="option[' + option['product_option_id'] + ']" id="input-option-' + option['product_option_id'] + '" class="form-select">';
+                    html += '    <option value=""> --- Please Select --- </option>';
+
+                    for (j = 0; j < option['product_option_value'].length; j++) {
+                        option_value = option['product_option_value'][j];
+
+                        html += '<option value="' + option_value['product_option_value_id'] + '">' + option_value['name'];
+
+                        if (option_value['price']) {
+                            html += ' (' + option_value['price_prefix'] + option_value['price'] + ')';
+                        }
+
+                        html += '</option>';
+                    }
+
+                    html += '  </select>';
+                    html += '  <div id="error-option-' + option['product_option_id'] + '" class="invalid-feedback"></div>';
+                    html += '</div>';
+                }
+
+                if (option['type'] == 'checkbox') {
+                    html += '<div class="mb-3' + (option['required'] == 1 ? ' required' : '') + '">';
+                    html += '  <label class="form-label">' + option['name'] + '</label>';
+
+                    html += '  <div id="input-option-' + option['product_option_id'] + '" class="form-control">';
+
+                    for (j = 0; j < option['product_option_value'].length; j++) {
+                        option_value = option['product_option_value'][j];
+
+                        html += '<div class="form-check">';
+                        html += '  <input type="checkbox" name="option[' + option['product_option_id'] + '][]" value="' + option_value['product_option_value_id'] + '" id="input-option-value-' + option_value['product_option_value_id'] + '" class="form-check-input"/> ';
+                        html += '  <label for="input-option-value-' + option_value['product_option_value_id'] + '" class="form-check-label">' + option_value['name'];
+
+                        if (option_value['price']) {
+                            html += ' (' + option_value['price_prefix'] + option_value['price'] + ')';
+                        }
+
+                        html += '  </label>';
+                        html += '</div>';
+                    }
+
+                    html += '  </div>';
+                    html += '  <div id="error-option-' + option['product_option_id'] + '" class="invalid-feedback"></div>';
+                    html += '</div>';
+                }
+
+                if (option['type'] == 'image') {
+                    html += '<div class="mb-3' + (option['required'] == 1 ? ' required' : '') + '">';
+                    html += '  <label for="input-option-' + option['product_option_id'] + '" class="form-label">' + option['name'] + '</label>';
+
+                    html += '  <select name="option[' + option['product_option_id'] + ']" id="input-option-' + option['product_option_id'] + '" class="form-select">';
+                    html += '    <option value=""> --- Please Select --- </option>';
+
+                    for (j = 0; j < option['product_option_value'].length; j++) {
+                        option_value = option['product_option_value'][j];
+
+                        html += '<option value="' + option_value['product_option_value_id'] + '">' + option_value['name'];
+
+                        if (option_value['price']) {
+                            html += ' (' + option_value['price_prefix'] + option_value['price'] + ')';
+                        }
+
+                        html += '</option>';
+                    }
+
+                    html += '  </select>';
+                    html += '  <div id="error-option-' + option['product_option_id'] + '" class="invalid-feedback"></div>';
+                    html += '</div>';
+                }
+
+                if (option['type'] == 'text') {
+                    html += '<div class="mb-3' + (option['required'] == 1 ? ' required' : '') + '">';
+                    html += '  <label for="input-option-' + option['product_option_id'] + '" class="form-label">' + option['name'] + '</label>';
+                    html += '  <input type="text" name="option[' + option['product_option_id'] + ']" value="' + option['value'] + '" placeholder="' + option['name'] + '" id="input-option-' + option['product_option_id'] + '" class="form-control"/>';
+                    html += '  <div id="error-option-' + option['product_option_id'] + '" class="invalid-feedback"></div>';
+                    html += '</div>';
+                }
+
+                if (option['type'] == 'textarea') {
+                    html += '<div class="mb-3' + (option['required'] == 1 ? ' required' : '') + '">';
+                    html += '  <label for="input-option-' + option['product_option_id'] + '" class="form-label">' + option['name'] + '</label>';
+                    html += '  <textarea name="option[' + option['product_option_id'] + ']" rows="5" placeholder="' + option['name'] + '" id="input-option-' + option['product_option_id'] + '" class="form-control">' + option['value'] + '</textarea>';
+                    html += '  <div id="error-option-' + option['product_option_id'] + '" class="invalid-feedback"></div>';
+                    html += '</div>';
+                }
+
+                if (option['type'] == 'file') {
+                    html += '<div class="mb-3' + (option['required'] == 1 ? ' required' : '') + '">';
+                    html += '  <label class="form-label">' + option['name'] + '</label>';
+                    html += '  <div>';
+                    html += '    <button type="button" data-oc-toggle="upload" data-oc-url="https://demo.opencart.com/admin/index.php?route=tool/upload|upload&amp;user_token=bf78120977a35d24f1b4660c423f3de4" class="btn btn-light"><i class="fas fa-upload"></i> Upload</button>';
+                    html += '    <a href="" class="btn btn-light"><i class="fas fa-download"></i></a>';
+                    html += '    <input type="hidden" name="option[' + option['product_option_id'] + ']" value="' + option['value'] + '" id="input-option-' + option['product_option_id'] + '"/>';
+                    html += '  </div>';
+                    html += '  <div id="error-option-' + option['product_option_id'] + '" class="invalid-feedback"></div>';
+                    html += '</div>';
+                }
+
+                if (option['type'] == 'date') {
+                    html += '<div class="mb-3' + (option['required'] == 1 ? ' required' : '') + '">';
+                    html += '  <label for="input-option-' + option['product_option_id'] + '" class="form-label">' + option['name'] + '</label>';
+                    html += '  <div class="input-group"><input type="text" name="option[' + option['product_option_id'] + ']" value="' + option['value'] + '" placeholder="' + option['name'] + '"  id="input-option-' + option['product_option_id'] + '" class="form-control date"/><div class="input-group-text"><i class="fas fa-calendar"></i></div></div>';
+                    html += '  <div id="error-option-' + option['product_option_id'] + '" class="invalid-feedback"></div>';
+                    html += '</div>';
+                }
+
+                if (option['type'] == 'datetime') {
+                    html += '<div class="mb-3' + (option['required'] == 1 ? ' required' : '') + '">';
+                    html += '  <label for="input-option-' + option['product_option_id'] + '" class="form-label">' + option['name'] + '</label>';
+                    html += '  <div class="input-group"><input type="text" name="option[' + option['product_option_id'] + ']" value="' + option['value'] + '" placeholder="' + option['name'] + '" id="input-option-' + option['product_option_id'] + '" class="form-control datetime"/><div class="input-group-text"><i class="fas fa-calendar"></i></div></div>';
+                    html += '  <div id="error-option-' + option['product_option_id'] + '" class="invalid-feedback"></div>';
+                    html += '</div>';
+                }
+
+                if (option['type'] == 'time') {
+                    html += '<div class="mb-3' + (option['required'] == 1 ? ' required' : '') + '">';
+                    html += '  <label for="input-option-' + option['product_option_id'] + '" class="form-label">' + option['name'] + '</label>';
+                    html += '  <div class="input-group"><input type="text" name="option[' + option['product_option_id'] + ']" value="' + option['value'] + '" placeholder="' + option['name'] + '" id="input-option-' + option['product_option_id'] + '" class="form-control time"/><div class="input-group-text"><i class="fas fa-calendar"></i></div></div>';
+                    html += '  <div id="error-option-' + option['product_option_id'] + '" class="invalid-feedback"></div>';
+                    html += '</div>';
+                }
+            }
+
+            html += '</fieldset>';
+
+            $('#option').html(html);
+        } else {
+            $('#option').html('');
+        }
+
+        if (item['subscription'] != '') {
+            html = '<fieldset class="mb-0">';
+            html += '  <legend>Choose Subscription</legend>';
+            html += '  <div class="mb-3 required">';
+            html += '    <select name="subscription_plan_id" id="input-subscription-plan" class="form-select">';
+            html += '      <option value=""> --- Please Select --- </option>';
+
+            for (i = 0; i < item['subscription'].length; i++) {
+                html += '<option value="' + item['subscription'][i]['subscription_plan_id'] + '">' + item['subscription'][i]['name'] + '</option>';
+            }
+
+            html += '  </select>';
+
+            for (i = 0; i < item['subscription'].length; i++) {
+                html += '  <div id="subscription-description-' + item['subscription'][i]['subscription_plan_id'] + '" class="form-text subscription d-none">' + item['subscription'][i]['description'] + '</div>';
+            }
+
+            html += '  <div id="error-subscription" class="invalid-feedback"></div>';
+            html += '</div>';
+            html += '</fieldset>';
+
+            $('#subscription').html(html);
+        } else {
+            $('#subscription').html('');
+        }
+    }
+});
+
+$('#form-product-add').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/cart|add',
+        type: 'post',
+        data: $('#form-product-add').serialize(),
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded',
+        beforeSend: function () {
+            $('#button-product-add').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-product-add').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+            $('.is-invalid').removeClass('is-invalid');
+            $('.invalid-feedback').removeClass('d-block');
+
+            if (json['error']) {
+                if (json['error']['warning']) {
+                    $('#form-product-add').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error']['warning'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+                }
+
+                for (key in json['error']) {
+                    $('#input-' + key.replaceAll('_', '-')).addClass('is-invalid').find('.form-control, .form-select, .form-check-input, .form-check-label').addClass('is-invalid');
+                    $('#error-' + key.replaceAll('_', '-')).html(json['error'][key]).addClass('d-block');
+                }
+            }
+
+            if (json['success']) {
+                $('#form-product-add').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                // Refresh products, vouchers and totals
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Remove product
+$('#order-products').on('submit', 'form', function (e) {
+    e.preventDefault();
+
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/cart|remove',
+        type: 'post',
+        data: $(element).serialize(),
+        dataType: 'json',
+        beforeSend: function () {
+            $(e.target).prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $(e.target).prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            // Check for errors
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                // Refresh products, vouchers and totals
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Voucher
+$('#form-voucher-add').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/voucher|add',
+        type: 'post',
+        data: $('#form-voucher-add').serialize(),
+        dataType: 'json',
+        beforeSend: function () {
+            $('#button-voucher-add').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-voucher-add').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+            $('.is-invalid').removeClass('is-invalid');
+            $('.invalid-feedback').removeClass('d-block');
+
+            if (json['error']) {
+                if (json['error']['warning']) {
+                    $('#form-voucher-add').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error']['warning'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+                }
+
+                if (json['error']) {
+                    for (key in json['error']) {
+                        $('#input-' + key.replaceAll('_', '-')).addClass('is-invalid').find('.form-control, .form-select, .form-check-input, .form-check-label').addClass('is-invalid');
+                        $('#error-' + key.replaceAll('_', '-')).html(json['error'][key]).addClass('d-block');
+                    }
+                }
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#input-to-name').val('');
+                $('#input-to-email').val('');
+                $('#input-from-name').val('');
+                $('#input-from-email').val('');
+                $('#input-message').val('');
+                $('#input-amount').val('');
+
+                // Refresh products, vouchers and totals
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Remove voucher
+$('#order-vouchers').on('submit', 'form', function (e) {
+    e.preventDefault();
+
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/voucher|remove',
+        type: 'post',
+        data: $(element).serialize(),
+        dataType: 'json',
+        beforeSend: function () {
+            $(e.target).prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $(e.target).prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            // Check for errors
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                // Refresh products, vouchers and totals
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#input-store').on('change', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=localisation/store',
+        type: 'post',
+        data: $('#form-store').serialize(),
+        dataType: 'json',
+        beforeSend: function () {
+            $('#input-store').prop('disabled', true);
+        },
+        complete: function () {
+            $('#input-store').prop('disabled', false);
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#input-language').on('change', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=localisation/language',
+        type: 'post',
+        data: $('#form-language').serialize(),
+        dataType: 'json',
+        beforeSend: function () {
+            $('#input-language').prop('disabled', true);
+        },
+        complete: function () {
+            $('#input-language').prop('disabled', false);
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#input-currency').on('change', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=localisation/currency',
+        type: 'post',
+        data: $('#form-currency').serialize(),
+        dataType: 'json',
+        beforeSend: function () {
+            $('#input-currency').prop('disabled', true);
+        },
+        complete: function () {
+            $('#input-currency').prop('disabled', false);
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Coupon
+$('#form-coupon').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/coupon',
+        type: 'post',
+        data: $('#form-coupon').serialize(),
+        dataType: 'json',
+        beforeSend: function () {
+            $('#button-coupon').addClass('loading').prop('disabled', true);
+        },
+        complete: function () {
+            $('#button-coupon').removeClass('loading').prop('disabled', false);
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                // Refresh products, vouchers and totals
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Voucher
+$('#form-voucher').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/voucher',
+        type: 'post',
+        data: $('#form-voucher').serialize(),
+        dataType: 'json',
+        beforeSend: function () {
+            $('#button-voucher').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-voucher').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                // Refresh products, vouchers and totals
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Reward
+$('#form-reward').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/reward',
+        type: 'post',
+        data: $('#form-reward').serialize(),
+        dataType: 'json',
+        beforeSend: function () {
+            $('#button-reward').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-reward').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Reward
+$(document).on('click', '#button-reward-add, #button-reward-remove', function (e) {
+    var element = this;
+
+    if ($(element).hasClass('btn-success')) {
+        var action = 'add';
+    } else {
+        var action = 'remove';
+    }
+
+    $.ajax({
+        url: 'index.php?route=sale/order|' + action + 'Reward&user_token=bf78120977a35d24f1b4660c423f3de4&order_id=' + $('#input-order-id').val(),
+        type: 'post',
+        dataType: 'json',
+        beforeSend: function () {
+            $(element).prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $(element).prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                if (action == 'add') {
+                    $(element).replaceWith('<button type="button" id="button-reward-remove" data-bs-toggle="tooltip" title="Remove Reward Points" class="btn btn-danger"><i class="fas fa-minus-circle"></i></button>');
+                }
+
+                if (action == 'remove') {
+                    $(element).replaceWith('<button type="button" id="button-reward-add" data-bs-toggle="tooltip" title="Add Reward Points" class="btn btn-success"><i class="fas fa-plus-circle"></i></button>');
+                }
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Affiliate
+$('#input-affiliate').autocomplete({
+    'source': function (request, response) {
+        $.ajax({
+            url: 'index.php?route=customer/customer|autocomplete&user_token=bf78120977a35d24f1b4660c423f3de4&filter_affiliate=1&filter_name=' + encodeURIComponent(request),
+            dataType: 'json',
+            success: function (json) {
+                json.unshift({
+                    name: ' --- None --- ',
+                    customer_id: 0
+                });
+
+                response($.map(json, function (item) {
+                    return {
+                        label: item['name'],
+                        value: item['customer_id']
+                    }
+                }));
+            }
+        });
+    },
+    'select': function (item) {
+        $('#input-affiliate-id').val(item['value']);
+    }
+});
+
+// Affiliate
+$('#form-affiliate').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/affiliate',
+        type: 'post',
+        data: $('#form-affiliate').serialize(),
+        dataType: 'json',
+        beforeSend: function () {
+            $('#button-affiliate').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-affiliate').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#form-affiliate').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#form-affiliate').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                if ($('#input-affiliate-id').val()) {
+                    $('#affiliate-value').html('<a href="index.php?route=marketing/affiliate|form&user_token=bf78120977a35d24f1b4660c423f3de4&customer_id=' + $('#input-affiliate-id').val() + '" target="_blank">' + $('#input-affiliate').val() + '</a>');
+                } else {
+                    $('#affiliate-value').html('&nbsp;');
+                }
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Commission
+$(document).on('click', '#button-commission-add, #button-commission-remove', function (e) {
+    var element = this;
+
+    if ($(element).hasClass('btn-success')) {
+        var action = 'add';
+    } else {
+        var action = 'remove';
+    }
+
+    $.ajax({
+        url: 'index.php?route=sale/order|' + action + 'Commission&user_token=bf78120977a35d24f1b4660c423f3de4&order_id=' + $('#input-order-id').val(),
+        type: 'post',
+        dataType: 'json',
+        beforeSend: function () {
+            $(element).prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $(element).prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                if (action == 'add') {
+                    $(element).replaceWith('<button type="button" id="button-commission-remove" data-bs-toggle="tooltip" title="Remove Commission" class="btn btn-danger"><i class="fas fa-minus-circle"></i></button>');
+                }
+
+                if (action == 'remove') {
+                    $(element).replaceWith('<button type="button" id="button-commission-add" data-bs-toggle="tooltip" title="Add Commission" class="btn btn-success"><i class="fas fa-plus-circle"></i></button>');
+                }
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Payment Address
+$('#input-payment-address').on('change', function () {
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=customer/customer|address&user_token=bf78120977a35d24f1b4660c423f3de4&address_id=' + this.value,
+        dataType: 'json',
+        beforeSend: function () {
+            $(element).prop('disabled', true);
+        },
+        complete: function () {
+            $(element).prop('disabled', false);
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#form-payment-address').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            // Reset all fields
+            $('#form-payment-address input[type=\'text\'], #form-payment-address textarea').val('');
+            $('#form-payment-address select option').not('#input-payment-address').removeAttr('selected');
+            $('#form-payment-address input[type=\'checkbox\'], #form-payment-address input[type=\'radio\']').removeAttr('checked');
+
+            $('#input-payment-firstname').val(json['firstname']);
+            $('#input-payment-lastname').val(json['lastname']);
+            $('#input-payment-company').val(json['company']);
+            $('#input-payment-address-1').val(json['address_1']);
+            $('#input-payment-address-2').val(json['address_2']);
+            $('#input-payment-city').val(json['city']);
+            $('#input-payment-postcode').val(json['postcode']);
+            $('#input-payment-country').val(json['country_id']);
+
+            payment_zone_id = json['zone_id'];
+
+            $('#input-payment-country').trigger('change');
+
+            for (i in json['custom_field']) {
+                $('#input-payment-custom-field-' + i).val(json['custom_field'][i]);
+
+                if (json['custom_field'][i] instanceof Array) {
+                    for (j = 0; j < json['custom_field'][i].length; j++) {
+                        $('#input-payment-custom-field-value-' + item.custom_field[i][j]).prop('checked', true);
+                    }
+                }
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#form-payment-address').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/payment_address',
+        type: 'post',
+        data: $('#form-payment-address').serialize(),
+        dataType: 'json',
+        beforeSend: function () {
+            $('#button-payment-address').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-payment-address').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+            $('.is-invalid').removeClass('is-invalid');
+            $('.invalid-feedback').removeClass('d-block');
+
+            // Check for errors
+            if (json['error']) {
+                if (json['error']['warning']) {
+                    $('#form-payment-address').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error']['warning'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+                }
+
+                for (key in json['error']) {
+                    $('#input-payment-' + key.replaceAll('_', '-')).addClass('is-invalid').find('.form-control, .form-select, .form-check-input, .form-check-label').addClass('is-invalid');
+                    $('#error-payment-' + key.replaceAll('_', '-')).html(json['error'][key]).addClass('d-block');
+                }
+            }
+
+            if (json['success']) {
+                $('#form-payment-address').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                var address = $('#input-payment-firstname').val() + ' ' + $('#input-payment-lastname').val() + "<br/>";
+
+                var company = $('#input-payment-company').val();
+
+                if (company) {
+                    address += $('#input-payment-company').val() + "<br/>";
+                }
+
+                address += $('#input-payment-address-1').val() + "<br/>";
+
+                var address_2 = $('#input-payment-address-2').val();
+
+                if (address_2) {
+                    address += $('#input-payment-address-2').val() + "<br/>";
+                }
+
+                address += $('#input-payment-city').val() + "<br/>";
+
+                var postcode = $('#input-payment-postcode').val();
+
+                if (postcode) {
+                    address += postcode + "<br/>";
+                }
+
+                address += $('#input-payment-zone option:selected').text() + "<br/>";
+                address += $('#input-payment-country option:selected').text();
+
+                $('#payment-address-value').html(address);
+
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+var payment_zone_id = '0';
+
+$('#input-payment-country').on('change', function () {
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=localisation/country|country&user_token=bf78120977a35d24f1b4660c423f3de4&country_id=' + this.value,
+        dataType: 'json',
+        beforeSend: function () {
+            $(element).prop('disabled', true);
+        },
+        complete: function () {
+            $(element).prop('disabled', false);
+        },
+        success: function (json) {
+            if (json['postcode_required'] == '1') {
+                $('#input-payment-postcode').parent().addClass('required');
+            } else {
+                $('#input-payment-postcode').parent().removeClass('required');
+            }
+
+            html = '<option value=""> --- Please Select --- </option>';
+
+            if (json['zone'] && json['zone'] != '') {
+                for (i = 0; i < json['zone'].length; i++) {
+                    html += '<option value="' + json['zone'][i]['zone_id'] + '"';
+
+                    if (json['zone'][i]['zone_id'] == payment_zone_id) {
+                        html += ' selected="selected"';
+                    }
+
+                    html += '>' + json['zone'][i]['name'] + '</option>';
+                }
+            } else {
+                html += '<option value="0" selected="selected"> --- None --- </option>';
+            }
+
+            $('#input-payment-zone').html(html);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#input-payment-country').trigger('change');
+
+// Shipping Address
+$('#input-shipping-address').on('change', function () {
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=customer/customer|address&user_token=bf78120977a35d24f1b4660c423f3de4&address_id=' + this.value,
+        dataType: 'json',
+        beforeSend: function () {
+            $(element).prop('disabled', true);
+        },
+        complete: function () {
+            $(element).prop('disabled', false);
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#form-shipping-address').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            // Reset all fields
+            $('#form-shipping-address input[type=\'text\'], #form-shipping-address input[type=\'text\'], #form-shipping-address textarea').val('');
+            $('#form-shipping-address select option').not('#input-shipping-address').removeAttr('selected');
+            $('#form-shipping-address input[type=\'checkbox\'], #form-shipping-address input[type=\'radio\']').removeAttr('checked');
+
+            $('#input-shipping-firstname').val(json['firstname']);
+            $('#input-shipping-lastname').val(json['lastname']);
+            $('#input-shipping-company').val(json['company']);
+            $('#input-shipping-address-1').val(json['address_1']);
+            $('#input-shipping-address-2').val(json['address_2']);
+            $('#input-shipping-city').val(json['city']);
+            $('#input-shipping-postcode').val(json['postcode']);
+            $('#input-shipping-country').val(json['country_id']);
+
+            shipping_zone_id = json['zone_id'];
+
+            $('#input-shipping-country').trigger('change');
+
+            for (i in json['custom_field']) {
+                $('#input-shipping-custom-field-' + i).val(json['custom_field'][i]);
+
+                if (json['custom_field'][i] instanceof Array) {
+                    for (j = 0; j < json['custom_field'][i].length; j++) {
+                        $('#input-shipping-custom-field-value-' + json['custom_field'][i][j]).prop('checked', true);
+                    }
+                }
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#form-shipping-address').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/shipping_address',
+        type: 'post',
+        data: $('#form-shipping-address').serialize(),
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded',
+        beforeSend: function () {
+            $('#button-shipping-address').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-shipping-address').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('#form-shipping-address .alert-dismissible').remove();
+            $('#form-shipping-address .is-invalid').removeClass('is-invalid');
+            $('#form-shipping-address .invalid-feedback').removeClass('d-block');
+
+            // Check for errors
+            if (json['error']) {
+                if (json['error']['warning']) {
+                    $('#form-shipping-address').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error']['warning'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+                }
+
+                for (key in json['error']) {
+                    $('#input-shipping-' + key.replaceAll('_', '-')).addClass('is-invalid').find('.form-control, .form-select, .form-check-input, .form-check-label').addClass('is-invalid');
+                    $('#error-shipping-' + key.replaceAll('_', '-')).html(json['error'][key]).addClass('d-block');
+                }
+            }
+
+            if (json['success']) {
+                $('#form-shipping-address').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                var address = $('#input-shipping-firstname').val() + ' ' + $('#input-shipping-lastname').val() + "<br/>";
+
+                var company = $('#input-shipping-company').val();
+
+                if (company) {
+                    address += $('#input-shipping-company').val() + "<br/>";
+                }
+
+                address += $('#input-shipping-address-1').val() + "<br/>";
+
+                var address_2 = $('#input-shipping-address-2').val();
+
+                if (address_2) {
+                    address += $('#input-shipping-address-2').val() + "<br/>";
+                }
+
+                address += $('#input-shipping-city').val() + "<br/>";
+
+                var postcode = $('#input-shipping-postcode').val();
+
+                if (postcode) {
+                    address += postcode + "<br/>";
+                }
+
+                address += $('#input-shipping-zone option:selected').text() + "<br/>";
+                address += $('#input-shipping-country option:selected').text();
+
+                $('#shipping-address-value').html(address);
+
+                // Refresh products, vouchers and totals
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+var shipping_zone_id = '0';
+
+$('#input-shipping-country').on('change', function () {
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=localisation/country|country&user_token=bf78120977a35d24f1b4660c423f3de4&country_id=' + this.value,
+        dataType: 'json',
+        beforeSend: function () {
+            $(element).prop('disabled', true);
+        },
+        complete: function () {
+            $(element).prop('disabled', false);
+        },
+        success: function (json) {
+            if (json['postcode_required'] == '1') {
+                $('#input-shipping-postcode').parent().addClass('required');
+            } else {
+                $('#input-shipping-postcode').parent().removeClass('required');
+            }
+
+            html = '<option value=""> --- Please Select --- </option>';
+
+            if (json['zone'] && json['zone'] != '') {
+                for (i = 0; i < json['zone'].length; i++) {
+                    html += '<option value="' + json['zone'][i]['zone_id'] + '"';
+
+                    if (json['zone'][i]['zone_id'] == shipping_zone_id) {
+                        html += ' selected="selected"';
+                    }
+
+                    html += '>' + json['zone'][i]['name'] + '</option>';
+                }
+            } else {
+                html += '<option value="0" selected="selected"> --- None --- </option>';
+            }
+
+            $('#input-shipping-zone').html(html);
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#input-shipping-country').trigger('change');
+
+// Payment Method
+$('#button-payment-method').on('click', function () {
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/payment_method',
+        dataType: 'json',
+        beforeSend: function () {
+            $(element).prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $(element).prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('#alert .alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            html = '<option value=""> --- Please Select --- </option>';
+
+            if (json['payment_methods']) {
+                for (i in json['payment_methods']) {
+                    if (json['payment_methods'][i]['code'] == $('#input-payment-method').val()) {
+                        html += '<option value="' + json['payment_methods'][i]['code'] + '" selected>' + json['payment_methods'][i]['title'] + '</option>';
+                    } else {
+                        html += '<option value="' + json['payment_methods'][i]['code'] + '">' + json['payment_methods'][i]['title'] + '</option>';
+                    }
+                }
+            }
+
+            $('#input-payment-method').html(html);
+
+            $('#button-refresh').trigger('click');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#input-payment-method').on('change', function (e) {
+    e.preventDefault();
+
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/payment_method|save',
+        type: 'post',
+        data: $('#form-payment-method').serialize(),
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded',
+        beforeSend: function () {
+            $(element).prop('disabled', true);
+        },
+        complete: function () {
+            $(element).prop('disabled', false);
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Shipping Method
+$('#button-shipping-method').on('click', function () {
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/shipping_method',
+        dataType: 'json',
+        beforeSend: function () {
+            $(element).prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $(element).prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            html = '<option value=""> --- Please Select --- </option>';
+
+            if (json['shipping_methods']) {
+                for (i in json['shipping_methods']) {
+                    html += '<optgroup label="' + json['shipping_methods'][i]['title'] + '">';
+
+                    if (!json['shipping_methods'][i]['error']) {
+                        for (j in json['shipping_methods'][i]['quote']) {
+                            if (json['shipping_methods'][i]['quote'][j]['code'] == $('#input-shipping-method').val()) {
+                                html += '<option value="' + json['shipping_methods'][i]['quote'][j]['code'] + '" selected>' + json['shipping_methods'][i]['quote'][j]['title'] + ' - ' + json['shipping_methods'][i]['quote'][j]['text'] + '</option>';
+                            } else {
+                                html += '<option value="' + json['shipping_methods'][i]['quote'][j]['code'] + '">' + json['shipping_methods'][i]['quote'][j]['title'] + ' - ' + json['shipping_methods'][i]['quote'][j]['text'] + '</option>';
+                            }
+                        }
+                    } else {
+                        html += '<option value="" class="text-danger" disabled>' + json['shipping_methods'][i]['error'] + '</span></li>';
+                    }
+
+                    html += '</optgroup>';
+                }
+            }
+
+            $('#input-shipping-method').html(html);
+
+            $('#button-refresh').trigger('click');
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#input-shipping-method').on('change', function (e) {
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/shipping_method|save',
+        type: 'post',
+        data: $('#form-shipping-method').serialize(),
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded',
+        beforeSend: function () {
+            $(element).prop('disabled', true);
+        },
+        complete: function () {
+            $(element).prop('disabled', false);
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#button-refresh').trigger('click');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#form-comment').on('submit', function (e) {
+    e.preventDefault();
+
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/order|comment',
+        type: 'post',
+        data: $('#form-comment').serialize(),
+        dataType: 'json',
+        contentType: 'application/x-www-form-urlencoded',
+        beforeSend: function () {
+            $('#button-comment').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-comment').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            // Check for errors
+            if (json['error']) {
+                $('#form-comment').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#form-comment').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#comment-value').html($('#input-comment').val().replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1<br/>$2'));
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Refresh all products, vouchers and totals
+$('#button-refresh').on('click', function () {
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/cart',
+        dataType: 'json',
+        beforeSend: function () {
+            $('#button-confirm').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-confirm').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            html = '';
+
+            if (json['products'].length) {
+                for (i = 0; i < json['products'].length; i++) {
+                    product = json['products'][i];
+
+                    html += '<tr>';
+                    html += '  <td class="text-start"><a href="index.php?route=catalog/product|form&user_token=bf78120977a35d24f1b4660c423f3de4&product_id=' + product['product_id'] + '" target="_blank">' + product['name'] + '</a>' + (!product['stock'] ? ' <span class="text-danger">***</span>' : '');
+
+                    if (product['option']) {
+                        for (j = 0; j < product['option'].length; j++) {
+                            option = product['option'][j];
+
+                            html += '<br/>';
+                            html += '  - <small>' + option['name'] + ': ' + option['value'] + '</small>';
+                        }
+                    }
+
+                    if (product['reward']) {
+                        html += '<br/>';
+                        html += '  - <small>Points ' + product['reward'] + '</small>';
+                    }
+
+                    if (product['subscription']) {
+                        html += '<br/>';
+                        html += '  - <small>Subscription ' + product['subscription'] + '</small>';
+                    }
+
+                    html += '  </td>';
+                    html += '  <td class="text-start">' + product['model'] + '</td>';
+                    html += '  <td class="text-end">' + product['quantity'] + '</td>';
+                    html += '  <td class="text-end">' + product['price'] + '</td>';
+                    html += '  <td class="text-end">' + product['total'] + '</td>';
+                    html += '  <td class="text-end">';
+                    html += '    <form>';
+                    html += '      <button type="submit" data-bs-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fas fa-minus-circle"></i></button>';
+                    html += '      <input type="hidden" name="key" value="' + product['cart_id'] + '"/>';
+                    html += '    </form>';
+                    html += '  </td>';
+                    html += '</tr>';
+                }
+            }
+
+            $('#order-products').html(html);
+
+            html = '';
+
+            if (json['vouchers'].length) {
+                for (i in json['vouchers']) {
+                    voucher = json['vouchers'][i];
+
+                    html += '<tr>';
+                    html += '  <td class="text-start">' + voucher['description'] + '</td>';
+                    html += '  <td class="text-start"></td>';
+                    html += '  <td class="text-end">1</td>';
+                    html += '  <td class="text-end">' + voucher['amount'] + '</td>';
+                    html += '  <td class="text-end">' + voucher['amount'] + '</td>';
+                    html += '  <td class="text-end">';
+                    html += '    <form>';
+                    html += '      <button type="submit" data-bs-toggle="tooltip" title="Remove" class="btn btn-danger"><i class="fas fa-minus-circle"></i></button>';
+                    html += '      <input type="hidden" name="key" value="' + voucher['key'] + '"/>';
+                    html += '    </form>';
+                    html += '  </td>';
+                    html += '</tr>';
+                }
+            }
+
+            if (!json['products'].length && !json['vouchers'].length) {
+                html += '<tr>';
+                html += '  <td colspan="6" class="text-center">No results!</td>';
+                html += '</tr>';
+            }
+
+            $('#order-vouchers').html(html);
+
+            // Totals
+            html = '';
+
+            if (json['totals'].length) {
+                for (i in json['totals']) {
+                    total = json['totals'][i];
+
+                    html += '<tr>';
+                    html += '  <td class="text-end"><strong>' + total['title'] + '</strong></td>';
+                    html += '  <td class="text-end" style="width: 1px;">' + total['text'] + '</td>';
+                    html += '</tr>';
+                }
+            }
+
+            $('#order-totals').html(html);
+
+            if (json['shipping_required']) {
+                $('#shipping-address').removeClass('d-none');
+                $('#shipping-method').removeClass('d-none');
+                $('#button-shipping').prop('disabled', false);
+            } else {
+                $('#shipping-address').addClass('d-none');
+                $('#shipping-method').addClass('d-none');
+                $('#button-shipping').prop('disabled', true);
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+// Checkout
+$('#button-confirm').on('click', function () {
+    var element = this;
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/order|confirm',
+        dataType: 'json',
+        beforeSend: function () {
+            $(element).prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $(element).prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                for (i in json['error']) {
+                    $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'][i] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+                }
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                if (json['order_id']) {
+                    $('#input-order-id').val(json['order_id']);
+                }
+
+                if (json['points']) {
+                    $('#reward-value').html(json['points']);
+                    $('#button-reward-add').prop('disabled', false);
+                    $('#button-reward-remove').prop('disabled', false);
+                } else {
+                    $('#reward-value').html(0);
+                    $('#button-reward-add').prop('disabled', true);
+                    $('#button-reward-remove').prop('disabled', true);
+                }
+
+                if (json['commission']) {
+                    $('#commission-value').html(json['commission']);
+                    $('#button-commission-add').prop('disabled', false);
+                    $('#button-commission-remove').prop('disabled', false);
+                } else {
+                    $('#commission-value').html('&nbsp;');
+                    $('#button-commission-add').prop('disabled', true);
+                    $('#button-commission-remove').prop('disabled', true);
+                }
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+
+$('#history').on('click', '.pagination a', function (e) {
+    e.preventDefault();
+
+    $('#history').load(this.href);
+});
+
+$('#form-history').on('submit', function (e) {
+    e.preventDefault();
+
+    $.ajax({
+        url: 'index.php?route=sale/order|call&user_token=bf78120977a35d24f1b4660c423f3de4&action=sale/order|addHistory&order_id=' + $('#input-order-id').val(),
+        type: 'post',
+        dataType: 'json',
+        data: $('#form-history').serialize(),
+        contentType: 'application/x-www-form-urlencoded',
+        beforeSend: function () {
+            $('#button-history').prop('disabled', true).addClass('loading');
+        },
+        complete: function () {
+            $('#button-history').prop('disabled', false).removeClass('loading');
+        },
+        success: function (json) {
+            $('.alert-dismissible').remove();
+
+            if (json['error']) {
+                $('#alert').prepend('<div class="alert alert-danger alert-dismissible"><i class="fas fa-exclamation-circle"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+
+            if (json['success']) {
+                $('#alert').prepend('<div class="alert alert-success alert-dismissible"><i class="fas fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+
+                $('#history').load('index.php?route=sale/order|history&user_token=bf78120977a35d24f1b4660c423f3de4&order_id=' + $('#input-order-id').val());
+
+                $('#input-history').val('');
+            }
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+//--></script>
+<footer id="footer"><a href="https://www.opencart.com">OpenCart</a> © 2009-2022 All Rights Reserved.<br>Version 4.0.0.0</footer></div>
+<script src="view/javascript/bootstrap/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+
+<div class="modal-backdrop show"></div></body></html>

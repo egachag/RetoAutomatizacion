@@ -16,7 +16,10 @@ public class Seleccionar implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-                Click.on(AbrirPagina.INICIAR));
+                Click.on(AbrirPagina.CERRAR_ALERTA),
+                Click.on(AbrirPagina.VENTAS),
+                Click.on(AbrirPagina.ORDENES)
+        );
 
     }
 }

@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuite name="co.com.choucair.RetoAutomatizacion.runners.RunnerTags" tests="0" skipped="0" failures="0" errors="0" timestamp="1970-01-01T00:00:00" hostname="CHBOGPF0FNML4" time="0.0">
   <properties/>
-  <system-out><![CDATA[REGISTER BASE STEP LISTENER net.thucydides.core.steps.BaseStepListener@5fd74c13
+  <system-out><![CDATA[REGISTER BASE STEP LISTENER net.thucydides.core.steps.BaseStepListener@3648c767
 
-3 Scenarios (?[32m3 passed?[0m)
-14 Steps (?[32m14 passed?[0m)
-0m29,147s
+?[31mFailed scenarios:?[0m
+?[31msrc/test/resources/features/Opencart.feature:18 ?[0m# Agregar un producto a una orden nueva
+
+3 Scenarios (?[31m1 failed?[0m, ?[32m2 passed?[0m)
+14 Steps (?[31m1 failed?[0m, ?[32m13 passed?[0m)
+0m30,235s
+
+java.lang.AssertionError: Expected mensaje
+Expected: is <true>
+     but: was <false>
+	at net.serenitybdd.screenplay.ErrorTally.throwSummaryExceptionFrom(ErrorTally.java:36)
+	at net.serenitybdd.screenplay.ErrorTally.reportAnyErrors(ErrorTally.java:30)
+	at net.serenitybdd.screenplay.Actor.should(Actor.java:301)
+	at co.com.choucair.RetoAutomatizacion.stepdefinitions.midefinicion.verificoMensajeDeExito(midefinicion.java:59)
+	at ?.verifico mensaje de exito "Success: You have modified your shopping cart!"(src/test/resources/features/Opencart.feature:21)
 
 ]]></system-out>
   <system-err><![CDATA[[Test worker] INFO net.thucydides.core.steps.ConsoleLoggingListener - 
@@ -59,8 +71,8 @@ TEST STARTED: Agregar un producto a una orden nueva
 
 TEST STARTED: eliminar un cupon en la funcuionalidad Marketing
 -------------------------------------------------------------------(ingreso-a-opencart-verificaion-de-datos;eliminar-un-cupon-en-la-funcuionalidad-marketing)
-[pool-2-thread-1] INFO net.thucydides.core.requirements.PackageRequirementsTagProvider - Loading requirements from package requirements at: net.thucydides.showcase.cucumber.junit
 [pool-2-thread-2] INFO net.thucydides.core.requirements.PackageRequirementsTagProvider - Loading requirements from package requirements at: net.thucydides.showcase.cucumber.junit
+[pool-2-thread-1] INFO net.thucydides.core.requirements.PackageRequirementsTagProvider - Loading requirements from package requirements at: net.thucydides.showcase.cucumber.junit
 [pool-2-thread-3] INFO net.thucydides.core.requirements.PackageRequirementsTagProvider - Loading requirements from package requirements at: net.thucydides.showcase.cucumber.junit
 ]]></system-err>
 </testsuite>
